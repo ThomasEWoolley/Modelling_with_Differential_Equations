@@ -1,0 +1,36 @@
+\subsection{Answers}
+\subsubsection{}
+There are two ways to show that the squared sum of each set of variables is constant. Firstly, we could differentiate the sum with respect to time and substitute in the ODEs, \ie
+\bb
+\frac{\rd}{\rd t}(u_1^2+u_2^2)=2u_1\dot{u}_1+2u_2\dot{u}_2=2u_1u_2-2u_2u_1=0.
+\ee
+Since the derivative is zero, the integral must be a constant with respect to time.
+
+Alternatively, we can divide one equation by the other and integrate the resulting equation,
+\bb
+\frac{\dot{v}_1}{\dot{v}_2}=\frac{\rd v_1}{\rd v_2}=-\frac{v_2}{v_1}.
+\ee
+Separating the derivative we find that
+\bb
+\int^{v_1}_0 v'_1\rd v'_1=-\int^{v_2}_0 v'_2\rd v'_2,
+\ee
+namely $v^2_1+v^2_2=$constant.
+
+This means that however $u_1$ and $u_2$, or $v_1$ and $v_2$ evolve, they must always satisfy the equation of a circle, which will be determined by the initial conditions. Thus,  the trajectories of $(u_1,u_2)$ and $(v_1,v_2)$  prescribe circles.
+
+\subsubsection{}
+In each case (0,0) is a steady state. In the second case $(0,v)$ is also a steady state for all values of $v$. The Jacobian for each case is
+\bb
+J(u_1,u_2)=\left[ {\begin{array}{cc}
+   0&1 \\
+  -1 & 0 \\
+  \end{array} } \right],
+\ee
+and
+\bb
+J(v_1,v_2)=\left[ {\begin{array}{cc}
+  v_2&v_1 \\
+  -2v_1 & 0 \\
+  \end{array} } \right].
+\ee
+In the first case the eigenvalues of (0,0) are $\pm I$, thus, it is a centre. In the second case $J$ the eigenvalues of $(0,v)$ are 0 and $v$. Thus, if $v>0$ the state is unstable and if $v\leq0$ the stability cannot be determined through linearisation as 0 is an eigenvalue. However, we know that $(v_1,v_2)$ must always lie on a circle and from \eqn{v2} we can see that $v_2$ is always decreasing. The minimum value it can obtain is at the bottom of the circle $v_1^2+v_2^2=$constant$=v_1(0)^2+v_2(0)^2$ (where we are specifying that the constant depends on the initial condition), \ie when $v_1=0$, which causes the system to stop evolving. Thus, all trajectories will evolve to $(0,v_2)$, where $v_2=-\sqrt{v_1(0)^2+v_2(0)^2}$.
