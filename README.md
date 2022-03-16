@@ -1,9 +1,11 @@
+![A vector field](https://github.com/ThomasEWoolley/Modelling_with_Differential_Equations/blob/main/Pictures/Front_image.png)
+
 # Modelling with Differential Equations
 These files provide an entire set of notes and problem sheets for a course in Modelling With Differential Equations. The course covers topics such as constitutive laws, steady states and linear stability of Ordinary Differential Equations systems.
 
 These notes were written by Dr Thomas E. Woolley. They are not based on a specific book, but rather the culmination of being taught by a diverse range of undergraduate lecturers. As such, input is acknowledged from lecturers David Acheson, Paul Todd, Chris Davies, Philip Maini, Ruth Baker and Eamonnn Gaffney. Sincere apologies to anyone who has been off this list.
 
-All errors are mine.
+All errors are the fault of Dr Thomas E. Woolley.
 
 # Folders
 The contents of the folders should be pretty self explanatory. However, I expand on the titles here.
@@ -35,6 +37,9 @@ All the figures that appear in the notes and problem sheets.
 Five problem sheets, with answers and computational problems covering the main topics of the course.
 
 Like the latex notes the question and answers are provided in a single .tex document. However, the answers can be hidden by changing the line \includecomment{Answ} to \excludecomment{Answ}.
+
+![Two simulations of the three body problem with slightly different initial conditions](
+https://github.com/ThomasEWoolley/Modelling_with_Differential_Equations/blob/main/Pictures/3BP.gif)
 
 # Course contents
 Below I reproduce the sections that appear in the latex notes.
