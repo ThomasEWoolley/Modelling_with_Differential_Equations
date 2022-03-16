@@ -1,0 +1,11 @@
+\subsection{Answers}
+\subsubsection{}
+\begin{enumerate}[(a)]
+\item $\dot{u}=r_3u/(1+u)$.
+\item $\dot{u}=-2r_1uv=\dot{v}$.
+\end{enumerate}
+\subsubsection{}
+\begin{enumerate}[(a)]
+\item $\slashed{0}\stackrel{1}{\rightarrow}u$.
+\item $u+v\stackrel{r_1/(1+v^2)}{\rightarrow}2u$.
+\end{enumerate}
