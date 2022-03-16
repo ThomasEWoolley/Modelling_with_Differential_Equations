@@ -36,6 +36,8 @@ Five problem sheets, with answers and computational problems covering the main t
 
 Like the latex notes the question and answers are provided in a single .tex document. However, the answers can be hidden by changing the line \includecomment{Answ} to \excludecomment{Answ}.
 
+# Course contents
+Below I reproduce the sections that appear in the latex notes.
 
 ## 1 Introduction
 1.1 Preliminary definitions
@@ -89,11 +91,19 @@ Like the latex notes the question and answers are provided in a single .tex docu
 
 ## 7 Putting it all together
 7.1 Fish example
+
 7.1.1 Model the system
+
 7.1.2 Non-dimensionalise
+
 7.1.3 Identify steady states
+
 7.1.4 Calculate stability
+
 7.1.5 Plot the phase-plane
+
 7.1.6 What does it mean?
+
 7.2 Pendulum example
+
 7.3 Check list
