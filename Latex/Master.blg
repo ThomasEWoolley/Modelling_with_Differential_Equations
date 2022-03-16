@@ -1,0 +1,17 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: Master.aux
+A level-1 auxiliary file: Introduction.aux
+A level-1 auxiliary file: How_to_model_a_system.aux
+A level-1 auxiliary file: Non-dimensionalisation.aux
+A level-1 auxiliary file: Stationary_states_and_stability.aux
+A level-1 auxiliary file: Stability_of_ODE_systems.aux
+A level-1 auxiliary file: Phase_plane_analysis.aux
+A level-1 auxiliary file: Putting_it_all_together.aux
+I couldn't open database file ../Bibel_no_web.bib
+---line 122 of file Master.aux
+ : \bibdata{../Bibel_no_web
+ :                         }
+I'm skipping whatever remains of this command
+The style file: unsrtnat.bst
+I found no \citation commands---while reading file Master.aux
+I found no database files---while reading file Master.aux
+(There were 3 error messages)
