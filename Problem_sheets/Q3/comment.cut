@@ -1,0 +1,47 @@
+\subsection{Answers}
+\subsubsection{}
+\begin{align}
+S+I&\stackrel{r_1}{\rightarrow}2I,\\
+I&\stackrel{r_2}{\rightarrow}R.
+\end{align}
+\subsubsection{}
+\begin{align}
+\dot{S}&=-r_1SI,\quad S(0)=S_0,\label{S}\\
+\dot{I}&=r_1SI-r_2I,\quad I(0)=I_0,\label{I}\\
+\dot{R}&=r_2I,\quad R(0)=0.\label{R}
+\end{align}
+\subsubsection{}
+Adding \eqnto{S}{R} we get $\rd \l S+I+R \r/\rd t=0$. Integrating and using the initial conditions produces the result $S+I+R=S_0+I_0$. This means that the total number of humans is conserved, namely they are either susceptible, infected, or removed. There is no leakage from the system.
+\subsubsection{}
+dim($S$)=dim($I$)=dim($R$)=density.
+
+\noindent dim($\dot{S}$)=dim($\dot{I}$)=dim($\dot{R}$)=density/time.
+
+\noindent dim($r_1$)=1/(density$\times$time).
+
+\noindent dim($r_2$)=1/time.
+\subsubsection{}
+Substituting $S=[S]S'$, $I=[I]I'$, $R=[R]R'$ and $t=[t]t'$, into the system we find that
+\begin{align}
+\frac{[S]}{[t]}&=r_1[S][I],\\
+\frac{[I]}{[t]}&=r_1[S][I]=r_2[I],\\
+\frac{[R]}{[t]}&=r_2[I],
+\end{align}
+from which we rapidly find that $[S]=[I]=[R]=r_2/r_1$ and $[t]=1/r_2$. Using the results from question 4 we find that $r_2/r_1=$density and $1/r_2=$time. Thus, units are consistent.
+\subsubsection{}
+$S'_0=S_0/[S]=r_1S_0/r_2.$\\
+$I'_0=I_0/[I]=r_1I_0/r_2.$
+
+\subsubsection{}
+\begin{align}
+\frac{\rd I'}{\rd S'}=\frac{\dot{I'}}{\dot{S'}}&=1-\frac{1}{S'},\nonumber\\
+\frac{\rd R'}{\rd S'}=\frac{\dot{R'}}{\dot{S'}}&=\frac{1}{S'},\nonumber
+\end{align}
+Integrating the above equations with initial conditions $I'(S'_0)=I'_0$ gives
+\bb
+I'(S') = \log\l \frac{S'}{S'_0}\r+I'_0+S'-S'_0.
+\ee
+and
+\bb
+R'=\log\l \frac{S'}{S'_0}\r.
+\ee
