@@ -1,0 +1,182 @@
+\documentclass[]{article}
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+            {-2.5ex\@plus -1ex \@minus -.25ex}%
+            {1.25ex \@plus .25ex}%
+            {\normalfont\normalsize\bfseries}}
+\makeatother
+\setcounter{secnumdepth}{4}
+\usepackage{amsmath}
+%\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{slashed}
+\usepackage{lineno}
+\usepackage{latexsym}
+\usepackage{subfigure}
+\usepackage{amssymb}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\usepackage[numbers,sort]{natbib}
+
+\newcommand{\bb}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newtheorem{defin}{Definition}
+\usepackage{multirow}
+\usepackage{ctable}
+\usepackage{bm}
+\usepackage{enumerate}
+\newcommand{\D}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\DD}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\rd}{\text{ d}}
+\usepackage{framed}
+\newcommand{\see}[1]{(see Figure \ref{#1})}
+\newcommand{\fig}[1]{Figure \ref{#1}}
+\newcommand{\figs}[2]{figures \ref{#1} and \ref{#2}}
+\newcommand{\sect}[1]{Section \ref{#1}}
+\newcommand{\app}[1]{Appendix \ref{#1}}
+\newcommand{\chap}[1]{Chapter \ref{#1}}
+\newcommand{\eqn}[1]{equation \eqref{#1}}
+\newcommand{\eqns}[2]{equations \eqref{#1} and \eqref{#2}}
+\newcommand{\eqnto}[2]{equations \eqref{#1}-\eqref{#2}}
+%\usepackage{authblk}
+\usepackage{url}
+\usepackage{soul}
+\newcommand{\eg}{\emph{e.g.} }
+\newcommand{\bn}{\bm{n}}
+\newcommand{\bu}{\bm{u}}
+\newcommand{\ie}{\emph{i.e.} }
+\newcommand{\Chapter}[1]{\chapter{#1}\label{#1}}
+\newcommand{\Section}[1]{\section{#1}\label{#1}}
+\newcommand{\Subsection}[1]{\subsection{#1}\label{#1}}
+\newcommand{\Subsubsection}[1]{\subsubsection{#1}\label{#1}}
+\newcommand{\Appendix}[1]{\appendix{#1}\label{#1}}
+\usepackage[margin=3cm,centering]{geometry}
+\usepackage[geometry]{ifsym}
+\makeatletter
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+\makeatother
+\urlstyle{leo}
+\usepackage{multirow}
+\usepackage{blkarray}
+\usepackage{soul}
+\usepackage{framed}
+\usepackage{color}
+\usepackage{setspace}
+\newcommand{\ttttp}{.24\textwidth}
+\newcommand{\tttp}{.32\textwidth}
+\newcommand{\ttp}{.45\textwidth}
+\newcommand{\tbo}{.6\textwidth}
+ \usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{authblk}
+ \renewcommand{\l}{\left(}
+\renewcommand{\r}{\right)}
+
+%\begin{figure}[h!!!tb]
+%\centering
+%\subfigure[\label{Godzilla}]{\includegraphics[height=0.35\textwidth]{./Pictures/Godzilla_final_bw.png}}
+%\subfigure[\label{Jaeger}]{\includegraphics[height=0.35\textwidth]{./Pictures/Jaeger_finish_bw.png}}
+%\caption{\label{Monsters} The two types of monster we are going to consider are: (a) the naturally occurring Kaijus and (b) the man-made Jaegers.}
+%\end{figure}
+\title{Problem sheet 1}
+\author{Thomas E. Woolley}
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item \textbf{Carbon dating}
+\item \textbf{Drag racing}
+\item \textbf{Newton's law of cooling}
+You can find the temperature inside your refrigerator without putting
+a thermometer inside. Take a can of soda from the refrigerator, let
+it warm for half an hour, then record its temperature. Let it warm
+for another half an hour and record its temperature again. Suppose
+that the readings are
+T
+(1
+=
+2) = 45
+�
+F
+and
+T
+(1) = 55
+�
+F
+. Assuming
+that the room temperature is
+70
+�
+F
+, what is the temperature inside the
+refrigerator?
+Solution:
+Taking the time one half hour after the soda was removed from
+the refrigerator to be the ``zero time'' (and stating the given information in
+an appropriate way), we have the boundary value problem
+dT
+dt
+=
+k
+(70
+
+
+
+
+\item \textbf{Motion under gravity}
+Motion under gravity, throwing a ball straight up 
+
+In this case we want to consider the vertical displacement of a projectile. We define $u$ to be the more standard coordinate variable $y$. We then know from physics that the acceleration (second) of the particle is equal to the gravitational constant $g=9.8$m/s$^2$.
+
+\item \textbf{Logistic equation}
+\begin{align}
+\frac{\rd u}{\rd t}&=rcu\l 1-\frac{u}{c}\r,\nonumber\\
+\Rightarrow\int_0^T\frac{\rd u}{u(1-u/c)}&=\int_0^Trc \rd t,\nonumber\\
+\Rightarrow\int_0^T \frac{1}{u}+\frac{1/c}{1-u/c}  \rd u&=rcT,\nonumber\\
+\Rightarrow\left[\ln(u)-\ln\l 1- \frac{u}{c} \r \right]^T_0&=rcT,\nonumber\\
+\Rightarrow\ln\l\frac{u}{1- \frac{u}{c}} \r-\ln\l\frac{u_0}{1- \frac{u_0}{c}} \r&=rcT,\nonumber\\
+\Rightarrow u(T)=\frac{c}{1+\frac{c-u_0}{u_0}\exp\l{-rcT}\r}
+\end{align}
+
+\item \textbf{Bacteria growth}
+\dot{u}=v
+\dot{v}=-uv
+
+\item \textbf{Time shift in ODEs, arbitrary start point}
+\item \textbf{Taylor series}
+\item \textbf{Wobbling doors} Damped oscillator.
+
+\item \textbf{Two body problem}
+We can combine the Second Law of Motion and the Law of Gravitation in order to predict the positions of planets interacting through their gravitational fields \see{Two_body}. Consider two planets with the same mass, $m$, and positions $\bm{r}(t)_1$ and $\bm{r}(t)_2$, respectively. Further, we note that since we are dealing with acceleration (a second-order equation) we will need to specify two initial conditions, the position and velocity. Let the initial positions be $\bm{r}(0)_1=\bm{r}_{10}$ and $\bm{r}(0)_2=\bm{r}_{20}$ and the initial velocities $\dot{\bm{r}(0)_1}=\bm{v}_{10}$ and $\dot{\bm{r}(0)_2}=\bm{v}_{20}$. The governing equations are
+\begin{align}
+&m\ddot{\bm{r}_1}=-G\frac{m^2}{|\bm{r}_1-\bm{r}_2|^3}\l\bm{r}_1-\bm{r}_2\r,\label{g1}\\
+&m\ddot{\bm{r}_2}=-G\frac{m^2}{|\bm{r}_2-\bm{r}_1|^3}\l\bm{r}_2-\bm{r}_1\r\label{g2}.
+\end{align}
+where we remember that this is a vector equation, $\bm{r}_i=(x_i,y_i)$, so there are actually four ODEs here, rather than two.
+
+We notice that if we add the equations together the right-hand sides cancel out,
+\bb
+\ddot{\bm{r}_1}+\ddot{\bm{r}_2}=0.
+\ee
+Integrating this equation we find that the velocity of $\bm{r}_1+\bm{r}_2$ is a conserved quantity and that
+\bb
+\bm{r}_1+\bm{r}_2=(\bm{r}_{10}+\bm{r}_{20})+(\bm{v}_{10}+\bm{v}_{20})t.\label{COM}
+\ee
+Points to note:
+\begin{itemize}
+\item the defined quantity $\bm{R}=(\bm{r}_1+\bm{r}_2)/2$ is the centre of mass of the system (because $m_1=m_2$). Thus the motion of the two planets is constrained such that their centre of mass travels at a constant speed throughout space;
+\item using \eqn{COM} we could decouple \eqns{g1}{g2} into two separate non-autonomous ODEs;
+\item it turns out to be more fruitful to consider the quantity $\bm{r}_1-\bm{r}_2$, which, if written in polar coordinates, leads to an ODE with a closed form solution. We will not do this here, but we will consider the simulated results.
+\item when solving \eqns{g1}{g2} numerically we could separate each equation into its Cartesian components and reduce the second-order equation to two first-order equations. Namely, we introduce $(v_{ix},v_{iy})=(\dot{x}_i,\dot{y}_i)$. Thus, we would have a system of eight ODEs to solve, with variables $(x_1,y_1,v_{1x},v_{1y},x_2,y_2,v_{2x},v_{2y})$. However, since $x_i$ and $y_i$ are perpendicular Cartesian coordinates it turns out to be a good idea to use complex numbers. Specifically, instead of writing two ODEs for each of $x_i$ and $y_i$ we can simply solve one ODE in terms of the complex quantity $\bm{r}_i=x_i+Iy_i$, which can be handled by numerical solvers. Thus, we simplify the numerical solution from eight equations to four equations.
+\end{itemize}
+
+\end{enumerate}
+\end{document}
+

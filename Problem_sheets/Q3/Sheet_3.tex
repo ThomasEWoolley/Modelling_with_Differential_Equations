@@ -2,7 +2,7 @@
 \makeatletter
 \usepackage{lmodern}
 \usepackage{comment}
-\excludecomment{Answ}
+\includecomment{Answ}
 \newcounter{ItemCounter}
 \usepackage{listings}
 \usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
@@ -169,7 +169,7 @@ This is known as the system on the `inner' time-scale.
 %Hint: $E_0\ll S_0\implies \epsilon\ll 1$, thus, once the equations have been multiplied take the limit of $\epsilon\rightarrow 0$ in the $\rd u/ \rd \sigma$ equation. Solve this and substitute the solution for $u$ in the $\rd v/ \rd \sigma$ equation.
 %Return to \eqns{u}{v} and l
 \end{enumerate}
-In questions \ref{Inner}-\ref{Outer} you have done a multiple scales simplification of the Michaelis-Menton problem. Namely, the whole equation is hard to solve. However, we can solve for what the equation looks like for small time, $\sigma$ (question \ref{Inner}) and we can solve for what the equations looks like for large time, question (\ref{Outer}). In the computation question, which is next, we check these approximations.
+In questions \ref{Inner}-\ref{Outer} you have done a multiple scales simplification of the Michaelis-Menten problem. Namely, the whole equation is hard to solve. However, we can solve for what the equation looks like for small time, $\sigma$ (question \ref{Inner}) and we can solve for what the equations look like for large time, question (\ref{Outer}). In the computation question, which is next, we check these approximations.
 
 \begin{Answ}
 \subsection{Answers}
@@ -186,7 +186,7 @@ In questions \ref{Inner}-\ref{Outer} you have done a multiple scales simplificat
 \ee
 using the initial conditions.
 \subsubsection{}
-$\dot{P}$ depends on $C$, but none of the other equations depend on $P$, thus, $\dot{P}$ decouples from the system, in that once we solved the rest of the system we can produce $P$ through integration $C$. This leaves equations for $E$, $S$ and $C$. Using $E+C=E_0$ we can eliminate $E$ as well, leaving just equations for $S$ and $C$. Substituting in $E=E_0-C$ we generate
+$\dot{P}$ depends on $C$, but none of the other equations depend on $P$, thus, $\dot{P}$ decouples from the system, in that once we have solved the rest of the system we can produce $P$ through integrating $C$. This leaves equations for $E$, $S$ and $C$. Using $E+C=E_0$ we can eliminate $E$ as well, leaving just equations for $S$ and $C$. Substituting in $E=E_0-C$ we generate
 \begin{align}
 \dot{S}&=-k_1(E_0-C)S + k_{-1}C,\\
 \dot{C}&=k_1(E_0-C)S -( k_{-1}+k_2)C.
@@ -219,11 +219,11 @@ On substituting $\sigma=\tau/\epsilon$ into \eqns{u}{v} we have
 \frac{\rd u}{\rd \sigma}&=\epsilon\l-u+(u+K-\lambda)v\r\approx 0,\quad u(0)=1\label{u_inner}\\
 \frac{\rd v}{\rd \sigma}&=u-(u+K)v\quad v(0)=0.\label{v_inner}
 \end{align}
-Solve \eqn{u_inner} provides $u=1$, which is substituted into \eqn{v_inner} to produce
+Solving \eqn{u_inner} provides $u=1$, which is substituted into \eqn{v_inner} to produce
 \bb
 \frac{\rd v}{\rd \sigma}=1-(1+K)v\quad v(0)=0.
 \ee
-Solving this equations gives the final answer
+Solving this equation gives the final answer
 \bb
 v(\sigma)= \frac{1}{1+K}\l 1-\exp(-(1+K)\sigma)\r.
 \ee
@@ -284,7 +284,7 @@ What are the scales of the population and time in terms of $A$, $B$, $K$ and $R$
 \underbrace{\dot{N}}_{\textrm{Population evolution.}}=\underbrace{RN\l 1-\frac{N}{K}\r}_{\textrm{Logistic growth, \ie linear growth with competition.}}-\underbrace{\frac{BN^2}{A^2+N^2}}_{\textrm{Predation effects.}}.
 \ee
 \subsubsection{}
-For low populations there is little predation. As the population grows, so does the predation. The predation saturates at large population.
+For low populations there is little predation. As the population grows, so does the predation. The predation saturates at large population sizes.
 \subsubsection{}\label{Scales}
 \bb
 [N]=A,\quad [t]=\frac{A}{B},\quad r=\frac{RA}{B},\quad k=\frac{K}{A}.
@@ -292,7 +292,7 @@ For low populations there is little predation. As the population grows, so does 
 \subsubsection{}
 $A$ has units of density, $B$ has units of density/time, $R$ has units of 1/time and $K$ has units of density.
 
-Substituting these into the scales in \sect{Scales} we find that $[N]$ and $[t]$ has units of density and time, respectively, whilst $r$ and $k$ are dimensionless.
+Substituting these into the scales in \sect{Scales} we find that $[N]$ and $[t]$ have units of density and time, respectively, whilst $r$ and $k$ are dimensionless.
 \end{Answ}
 
 \section{Spruce budworm population stability}
@@ -309,7 +309,7 @@ We could solve $f(u)=0$, however, this leads to a cubic in $u$. This can be solv
 
 We could sketch $f(u)$, directly, and draw arrows on the diagram, such that $u$ is increasing if $f(u)>0$ and $u$ is decreasing if $f(u)<0$. This will immediately tell us how many stationary states there are and inform us of their stability. We will do this towards the end of this question, however, going straight into the full sketch may cause us to miss certain cases, as we have two parameters, $r$ and $K$, to worry about. However, if you feel confident shoot straight to question \ref{sketch_f}.
 
-Critically, the following questions only deal with sketches. Thus, you do not have to be exactly accurate in your plotted values. We are just need to provide the general shape of the curve. This means little, if any, calculation should be required. Namely, an exact analytical result is not required, only approximate sketches backed up by logical thought.
+Critically, the following questions only deal with sketches. Thus, you do not have to be exactly accurate in your plotted values. We just need to provide the general shape of the curve. This means little, if any, calculation should be required. Namely, an exact analytical result is not required, only approximate sketches backed up by logical thought.
 
 \begin{enumerate}
 \item By inspection $u_0=0$ is always a steady state of $f(u)$ (make sure you understand why). Instead of considering $f(u)$ let us consider the two functions
@@ -328,7 +328,7 @@ f(u')=0=u'(f_1(u')-f_2(u')),
 \ee
 use your sketches of $f_1$ and $f_2$ to plot three situations of $f(u)$\label{sketch_f}.
 
-\item You should be able to show that (depending on the value of the parameters) there can be as few as two steady states and as many as 4 steady states. Name the four steady states $0=u_0<u_-<u_s<u_+$, in the obvious way. Specify on your diagrams these four steady states.  The middling value of $r$ sketch is given in \fig{r_medium}.
+\item You should be able to show that (depending on the value of the parameters) there can be as few as two steady states and as many as 4 steady states. Name the four steady states $0=u_0<u_-<u_s<u_+$, in the obvious way. Specify on your diagrams these four steady states.  The sketch for a middling value of $r$ is given in \fig{r_medium}.
 \begin{figure}[h!!!tb]
 \centering
 \includegraphics[width=\ttp]{../../Pictures/Spruce_budworm_r_medium.png}
@@ -380,15 +380,15 @@ Using \fig{Spruce_budworm_arrowed} $u_0$ is always unstable and always exists. $
 \subsubsection{}
 \begin{enumerate}[(a)]
 \item when $r$ is small only $u_0$ and $u_-$ exist and, so, the system will tend to $u_-$.
-\item as $r$ increase $u_s$ and $u_+$ will appear, but $u_-$ is still stable and so the system stays where it is, as $u_-$.
+\item as $r$ increases $u_s$ and $u_+$ will appear, but $u_-$ is still stable and so the system stays where it is, at $u_-$.
 \item for large $r$ $u_-$ disappears. The system then evolves to $u_+$.
 \item reducing $r$ to the previous value brings back $u_-$, but $u_+$ still exists and is stable so the system stays at $u_+$.
-\item originally we were at $u_-$ now we are at $u_+$, even though we have reduced $r$ back to the previous position. Since these are different steady states the model presents hysteresis.
+\item originally we were at $u_-$; now we are at $u_+$, even though we have reduced $r$ back to the previous position. Since these are different steady states the model presents hysteresis.
 \end{enumerate} 
 \end{Answ}
 
 \section*{Exam revision}
-\section{Stability of a one variable system}
+\section{Stability of a one-variable system}
 Consider the following equation
 \bb
 \dot{u}=u(1-u)^3(u-2)^2(3-u)(4-u).\label{Stability_test}
@@ -416,7 +416,7 @@ and, so,
 \frac{\rd f}{\rd u}(3)&=24>0\nonumber\\
 \frac{\rd f}{\rd u}(4)&=-432<0\nonumber.
 \end{align}
-Thus, $u_s=0,3$ are unstable, $u_s=4$ is stable and we can not categorise $u_s=1,2$ because the equation has at least a double root at these points and, as such, the derivative evaluates to zero.
+Thus, $u_s=0,3$ are unstable, $u_s=4$ is stable and we cannot categorise $u_s=1,2$ because the equation has at least a double root at these points and, as such, the derivative evaluates to zero.
 \subsubsection{}
 \fig{Revision_stability_one_variable} illustrates that $u_s=0,2,3$ are unstable, whilst $u_s=1,4$ are stable.
 \begin{figure}[h!!!tb]
@@ -430,7 +430,7 @@ Thus, $u_s=0,3$ are unstable, $u_s=4$ is stable and we can not categorise $u_s=1
 The interaction dynamics of any disease can be understood by modelling three sections of the population: the susceptible population, $S$; the infected population, $I$ and the recovered population, $R$. They interact through the following rules:
 \begin{itemize}
 \item whenever a susceptible agent interacts with an infective agent the result is two infective agents at a rate $r_1$;
-\item the infected population recovers at a rate proportional to the size of the infected population, the rate of proportionality is $r_2$.
+\item the infected population recovers at a rate proportional to the size of the infected population; the rate of proportionality is $r_2$.
 \end{itemize}
 Finally, suppose that the initial densities of the susceptible and infectives are $S_0$ and $I_0$, respectively, and that there are no initially recovered people.
 \begin{enumerate}
@@ -444,7 +444,7 @@ Finally, suppose that the initial densities of the susceptible and infectives ar
 %\end{align}
 \item Show that $S+I+R=$ constant $=S_0+I_0$. What does this mean?
 \item What are the dimensions of $S$, $I$, $R$, $\dot{S}$, $\dot{I}$, $\dot{R}$, $r_1$ and $r_2$ in terms of density and time?
-\item Let $S=[S]S'$, $I=[I]I'$, $R=[R]R'$ and $t=[t]t'$ where the bracketed variable is the dimensional part and the primed variable be the non-dimensional part. Further, suppose  we non-dimensionalise the system as
+\item Let $S=[S]S'$, $I=[I]I'$, $R=[R]R'$ and $t=[t]t'$ where the bracketed variable is the dimensional part and the primed variable is the non-dimensional part. Further, suppose  we non-dimensionalise the system as
 \begin{align}
 \dot{S'}&=-S'I',\quad S'(0)=S'_0,\nonumber\\
 \dot{I'}&=S'I'-I',\quad I'(0)=I'_0,\nonumber\\
@@ -501,11 +501,12 @@ $I'_0=I_0/[I]=r_1I_0/r_2.$
 \end{align}
 Integrating the above equations with initial conditions $I'(S'_0)=I'_0$ gives
 \bb
-I'(S') = \log\l \frac{S'}{S'_0}\r+I'_0+S'-S'_0.
+I'(S') = \log\l \frac{S'}{S'_0}\r+I'_0-S'+S'_0.
 \ee
 and
 \bb
-R'=\log\l \frac{S'}{S'_0}\r.
+R'=-\log\l \frac{S'}{S'_0}\r.
 \ee
 \end{Answ}
 \end{document}
+

@@ -3,13 +3,13 @@
 \textit{In metric, one milliliter of water occupies one cubic centimeter, weighs one gram, and requires one calorie of energy to heat up by one degree centigrade — which is 1 percent of the difference between its freezing point and its boiling point. An amount of hydrogen weighing the same amount has exactly one mole of atoms in it. Whereas in the [imperial] system, the answer to ``How much energy does it take to boil a room-temperature gallon of water?" is ``Go fuck yourself'', because you can't directly relate any of those quantities.}
 \end{aquote}
 
-Thus, far we have been fairly lax about defining the quantities we have actually been measuring. Further, once we have specified what the quantity actually is, what units are we using to measure the quantity. For example, if we are measuring distance are we doing it in mm, miles or light-years? Equally, is time measured in seconds, minutes or hours? Finally, constitutive laws often introduce parameters that are not quantified accurately, or alternatively, we may be interested in understanding how a solution depends on a particular parameter as it is varied. 
+Thus far we have been fairly lax about defining the quantities we have actually been measuring. Further, once we have specified what the quantity actually is, what units are we using to measure the quantity? For example, if we are measuring distance are we doing it in mm, miles or light-years? Equally, is time measured in seconds, minutes or hours? Finally, constitutive laws often introduce parameters that are not quantified accurately, or alternatively, we may be interested in understanding how a solution depends on a particular parameter as it is varied. 
 
-The Law of Mass Action, in particular, could be thought to be a troublesome law as it introduces a rate parameter for each reaction equation that is considered. For example, if a system of ODEs is defined by a set of non-linear equations it is highly unlikely to be solvable in closed form. Thus, if there are a large number of parameters in the system, it becomes very difficult to predict how varying a single parameter (or group of parameters) will influence the solution.
+The Law of Mass Action, in particular, could be thought to be a troublesome law as it introduces a rate parameter for each reaction equation that is considered. For example, if a system of ODEs is defined by a set of non-linear equations it is highly unlikely to be solvable in closed form. Thus, if there is a large number of parameters in the system, it becomes very difficult to predict how varying a single parameter (or group of parameters) will influence the solution.
 
 However, we have already seen cases in which we do not need to consider parameters individually, as specific groups of the parameters are seen to act in the same way. For example, in the case of the spring pendulum (see \sect{Pendulums_section}), we saw that the frequency of oscillation depended on $\sqrt{k/m}$. Thus, stiffening the spring (increasing $k$) has the same effect on the solution as decreasing the mass (decreasing $m$), \ie they both increase the frequency of the oscillations. Equally, in the example of a zombie infection (see example \ref{Zombies}), the parameters of interest were not $a$, $b$ or $c$, but rather $\alpha=b+c$ and $\beta=c-a$.
 
-In this chapter we introduce a technique, called non-dimensionalisation, that will benefit us in two ways. Firstly, it allow us to brush away worries about dealing with units and, secondly, it will allow us to reduce the number of effective parameters in our system. Specifically, we will be able to define parameter groupings that will influence the final result in the same way.
+In this chapter we introduce a technique, called non-dimensionalisation, that will benefit us in two ways. Firstly, it will allow us to brush away worries about dealing with units and, secondly, it will allow us to reduce the number of effective parameters in our system. Specifically, we will be able to define parameter groupings that will influence the final result in the same way.
 
 \section{The central idea}
 To non-dimensionalise a system of equations, we have the following rules:
@@ -19,13 +19,13 @@ To non-dimensionalise a system of equations, we have the following rules:
 \item Choose the definition of the characteristic unit for each variable;\label{Choose}
 \item Rewrite the system of equations in terms of the new dimensionless quantities.
 \end{enumerate}
-We note three particular points about these rules. Firstly, the theory behind non-dimensionalisation is straight forward. Namely, we substitute scaled variables into an equation system and massage the equations until we have rearranged the system to produce the desired outcome. However, in practice the difficulty of the technique lies in the algebraic manipulation; it is very easy for the terms to become lost during the manipulation. Thus, care must be taken during the algebraic manipulation stage.
+We note three particular points about these rules. Firstly, the theory behind non-dimensionalisation is straightforward. Namely, we substitute scaled variables into an equation system and massage the equations until we have rearranged the system to produce the desired outcome. However, in practice the difficulty of the technique lies in the algebraic manipulation; it is very easy for the terms to become lost during the manipulation. Thus, care must be taken during the algebraic manipulation stage.
 
-Secondly, you will notice the word `choose' in point \ref{Choose}. This means that it possible to construct many different non-dimensionalised systems from the same system of equations, \ie non-dimensionalisation is non-unique. We usually choose the characteristic unit of each variable to either emphasise one of the terms in a system or to remove as many parameters as possible.
+Secondly, you will notice the word `choose' in point \ref{Choose}. This means that it is possible to construct many different non-dimensionalised systems from the same system of equations, \ie non-dimensionalisation is non-unique. We usually choose the characteristic unit of each variable to either emphasise one of the terms in a system or to remove as many parameters as possible.
 
-Finally, this technique is hard to demonstrate in generality. It is much better to consider a number of system and see how the technique works in action. Thus, what follows will be a select number of examples, which along with your problem sheets should give you a good basis in the theory. However, do not think that these are all the examples you could face.
+Finally, this technique is hard to demonstrate in generality. It is much better to consider a number of systems and see how the technique works in action. Thus, what follows will be a select number of examples, which along with your problem sheets should give you a good basis in the theory. However, do not think that these are all the examples you could face.
 
-It should be noted that there is little consistency in nomenclature across book when considering the separation of variables into their dimensional and non-dimensional components. Thus, always be clear in your definitions.
+It should be noted that there is little consistency in nomenclature across books when considering the separation of variables into their dimensional and non-dimensional components. Thus, always be clear in your definitions.
 
 \subsection{Examples of non-dimensionalisation through substitution of variables}\label{Examples of non-dimensionalisation through substitution of variables}
 \begin{example}[frametitle=Substituting variables]
@@ -46,13 +46,13 @@ Hence, we see that if we choose $[t]=1/r$ and $[u]=u_0$ then \eqn{Non-dim_1} sim
 \ee
 where we note that we have dropped the prime symbols, $'$, for notational convenience.
 
-For mathematicians dropping primes is often done as the last step because we infrequently care about the actual values of the variables, rather we study the dynamics available in the equation. However, in any specific application we should be careful to remember that the variables we are dealing with are non-dimensional and that the solution is not complete until we `re-dimensionalise' the variables.}
+For mathematicians dropping primes is often done as the last step because we infrequently care about the actual values of the variables; rather, we study the dynamics available in the equation. However, in any specific application we should be careful to remember that the variables we are dealing with are non-dimensional and that the solution is not complete until we `re-dimensionalise' the variables.}
 
 \COL{In this example we see that the values of $r$ and $u_0$ in \eqn{Non-dim_1} do not influence the dynamics of the simulation. Specifically, they only scale the time and initial condition.
 
 Although this was a fairly trivial example, a good way to check consistency of the answer at the end of the manipulation is to check that all of the dimensions agree. As mentioned $[t]$ should have units of time and $[u]$ should have units of density. We return to \eqn{Non-dim_1} and consider the dimensions of each component.
 
-For example, $\dot{u}=\rd u/ \rd t$ has units of density/time. By equality, $ru$ must have units of density/time since $u$ has units of density then $r$ must have units of 1/time. Thus, 
+For example, $\dot{u}=\rd u/ \rd t$ has units of density/time. By equality, $ru$ must have units of density/time since $u$ has units of density, then $r$ must have units of 1/time. Thus, 
 \bb
 \textrm{dim}([t])=\textrm{dim}(1/r)=\textrm{time}.\nonumber
 \ee
@@ -66,7 +66,7 @@ Equally, $[u]=u_0$ can trivially be seen to have the correct units of density.}
 \bb
 \frac{\rd u'}{\rd t'}=[t]ru'\l 1-\frac{[u]}{K}u'\r,\quad u'(0)=\frac{u_0}{[u]},\nonumber
 \ee
-from which we see that it would be wise to once again take $[t]=1/r$. Beyond this we see that we have a choice. Should we take $[u]=K$, or $[u]=u_0$? Both are valid non-dimensionalisations and either maybe be appropriate depending on the context of the problem. 
+from which we see that it would be wise to once again take $[t]=1/r$. Beyond this we see that we have a choice. Should we take $[u]=K$, or $[u]=u_0$? Both are valid non-dimensionalisations and either may be appropriate depending on the context of the problem. 
 
 Here, we are going to take $[u]=K$ as we are interested in the dynamics of the system, rather than the initial condition. Thus, after dropping primes we see that we can non-dimensionalise \eqn{Non-dim_2} to 
 \bb
@@ -74,7 +74,7 @@ Here, we are going to take $[u]=K$ as we are interested in the dynamics of the s
 \ee
 where $U_0=u_0/[u]=u_0/K$.
 
-In this case the non-dimensionalisation demonstrates that the only parameter that the solution depends on is the initial conditions. Changing $r$ does not change the dynamics of the system, it only changes the time scale, since $r=1/[t]$. Equally, changing $K$ simply scales the size of the solution, as $u=Ku'$.}
+In this case the non-dimensionalisation demonstrates that the only parameter that the solution depends on is the initial condition. Changing $r$ does not change the dynamics of the system; it only changes the time scale, since $r=1/[t]$. Equally, changing $K$ simply scales the size of the solution, as $u=Ku'$.}
 
 \item Consider the following equations (the Schnakenberg kinetics)
 \begin{align}
@@ -117,7 +117,7 @@ Hence,
 \bb
 \textrm{dim}([u])=\sqrt{\frac{1/\textrm{time}}{1/(\textrm{density}^2\textrm{time})}}=\sqrt{\textrm{density}^2}=\textrm{density}.
 \ee
-The scales $[v]$ and $[t]$ can be checked similarly. We also need to ensure the the variables $\alpha, \beta, u'_0, v'_0$ are have no dimension. For example
+The scales $[v]$ and $[t]$ can be checked similarly. We also need to ensure that the variables $\alpha, \beta, u'_0, v'_0$ have no dimension. For example
 \bb
 \textrm{dim}(v'_0)=\textrm{density}\sqrt{\frac{1/(\textrm{density}^2\textrm{time})}{1/\textrm{time}}}=\textrm{density}\sqrt{\frac{1}{\textrm{density}^2}}=1.
 \ee
@@ -148,7 +148,7 @@ from which it is simple to discover that
 \bb
 [t]=\frac{1}{k_1},\quad [u]=\frac{k_1}{k_2}.\nonumber
 \ee
-We still need to substitute the scales into the equations. Namely, $u=u'k_1/k_2$ and $t=t'/k_1$, but again the arrow method simplifies this task. Specifically, we know that, by design, the coefficient of the derivative, linear and quadratic term are going to be the same. Thus, we can divide through by one of them to speed up the derivation,
+We still need to substitute the scales into the equations. Namely, $u=u'k_1/k_2$ and $t=t'/k_1$, but again the arrow method simplifies this task. Specifically, we know that, by design, the coefficients of the derivative, linear and quadratic terms are going to be the same. Thus, we can divide through by one of them to speed up the derivation,
 \bb
 \frac{\rd u'}{\rd t'}=\frac{k_0}{k_1[u]}+u'+u'^2.\nonumber
 \ee
@@ -156,13 +156,13 @@ Finally, redefining the last parameter as $\alpha=k_0/(k_1[u])=k_0k_2/(k_1^2)$ a
 \bb
 \dot{u}=\alpha+u+u^2,\quad u(0)=u'_0,\label{Non-dim_5}
 \ee
-where we have dropped the primes from the variables for simplicity. Once again, we would have to ensure that $\alpha$ and $u'_0$ where non-dimensional and that $[u]$ and $[t]$ had the right dimensions, but this }\COL{is left as an exercise.
+where we have dropped the primes from the variables for simplicity. Once again, we would have to ensure that $\alpha$ and $u'_0$ were non-dimensional and that $[u]$ and $[t]$ had the right dimensions, but this }\COL{is left as an exercise.
 }\COL{
 In this example we can illustrate the power of the non-dimensionalisation through the parameter groupings
 \bb
 \alpha=\frac{k_0k_2}{k_1^2},\quad u'_0=\frac{k_2u_0}{k_1}.\nonumber
 \ee
-Specifically, suppose we double each of the kinetic parameters \ie $k_0\mapsto 2k_0$, $k_1\mapsto 2k_1$ and $k_2\mapsto 2k_2$ then neither $\alpha$, nor $u'_0$ changes. This means that under this transformation the solution of \eqn{Non-dim_5} is exactly the same. But, how does this transformation of the original equations? Well, $[u]=k_1/k_2$ does not change, but $[t]=1/(2k_1)$ will be half its previous value. Hence, the solution to this `doubled-parameter' problem (call it $u_2(t)$) will reach the same solution values as the original problem, but in half the time \see{Non_dim_example},
+Specifically, suppose we double each of the kinetic parameters \ie $k_0\mapsto 2k_0$, $k_1\mapsto 2k_1$ and $k_2\mapsto 2k_2$ then neither $\alpha$ nor $u'_0$ changes. This means that under this transformation the solution of \eqn{Non-dim_5} is exactly the same. But how does this transformation affect the original equations? Well, $[u]=k_1/k_2$ does not change, but $[t]=1/(2k_1)$ will be half its previous value. Hence, the solution to this `doubled-parameter' problem (call it $u_2(t)$) will reach the same solution values as the original problem, but in half the time \see{Non_dim_example},
 \bb
 u_2(t)=u\l\frac{t}{2}\r.\label{Non-dim_6}
 \ee}
@@ -205,7 +205,7 @@ where
 Both forms of the non-dimensionalised equation, \eqref{Non-dim_5} and  \eqref{Non-dim_8}, are perfectly valid. The most useful form will depend on what factor dominates the equation. If $k_0$ is small and $k_1$ is big (relative to one another) then \eqn{Non-dim_5} would be more useful as $\alpha\approx0$ and we would be able to manipulate the equation to provide more information. Alternatively, if $k_0$ was big and $k_2$, or $k_1$, was small then, \eqn{Non-dim_8} would be more useful as we would, again, be able to remove one of the constants based on this assumption.
 
 \begin{example}[frametitle=Failure]
-As mentioned not all balances are valid, which is what we will be seen in this example. Consider the following ODE system
+As mentioned not all balances are valid, which is what we will see in this example. Consider the following ODE system
 \begin{align}
   \tikzmark{a}\dot{u}=k_0\tikzmark{b}+k_1\tikzmark{c}u-k_2uv, \quad u(0)=u_0,\\
  \nonumber \\
@@ -244,7 +244,7 @@ See the board for details.
 
 Although each case of non-dimensionalisation is different, the algorithm you should follow is the same in each case. The steps are:
 \begin{enumerate}
-\item write down the variables in the equations, this tells you how many balances you need;
+\item write down the variables in the equations; this tells you how many balances you need;
 \item specify balances and check that they are valid;
 \item define non-dimensional scales that allow you to minimise the number of free parameters;
 \item substitute the scales into the equations and collect together the remaining parameters into the smallest possible groups and give them a new variable name (DO NOT FORGET to do the same thing for the initial conditions. Everyone always forgets to do the initial conditions);
@@ -276,6 +276,8 @@ By the end of this chapter you should be able to:
 \item demonstrate that the derived scales have the correct dimension;
 \item demonstrate that remaining parameter groupings are non-dimensional;
 \end{todolist}
+
+
 
 
 

@@ -138,7 +138,7 @@ Grey, $G$, and red, $R$, squirrel populations undergo the following interactions
 \begin{enumerate}
 \item Write down the interaction equations specified by the above description.
 
-Hint: You should create six equations over all and they should be symmetric in $G$ and $R$ (\ie if you swap $G$ and $R$ the dynamics should be the same).
+Hint: You should create six equations overall and they should be symmetric in $G$ and $R$ (\ie if you swap $G$ and $R$ the dynamics should be the same).
 \item Show that the interaction equations lead to the following ODEs
 \begin{align}
 \dot{G}&=b_1G-d_1G^2-c_1RG,\\
@@ -181,7 +181,7 @@ G&\mathrel{\mathop{\rightleftarrows}^{b_1}_{d_1}}2G,\quad G+R\stackrel{c_1}{\rig
 R&\mathrel{\mathop{\rightleftarrows}^{b_2}_{d_2}}2R,\quad G+R\stackrel{c_2}{\rightarrow}G.
 \end{align}
 \subsubsection{}
-Using the Law of Mass Action on the interactions equations shown in answer \ref{Interaction_equations} we get the given equations.
+Using the Law of Mass Action on the interaction equations shown in answer \ref{Interaction_equations} we get the given equations.
 \subsubsection{}
 $\textrm{dim}(b_1)=\textrm{dim}(b_2)=1/$time.
 
@@ -229,7 +229,7 @@ J(0,1)=\left[ {\begin{array}{cc}
 The eigenvalues are the diagonal elements. Hence, (0,1) is a stable node if $\alpha_{12}>1$ and a saddle point if $\alpha_{12}<1$.
 
 
-In summary (0,0) always exists and is always unstable, (1,0) and (0,1) always exist but their stability depends on $(\alpha_{12},\alpha_{21})$ and, finally, existence and stability of $(u_s,v_s)$ depends on $(\alpha_{12},\alpha_{21})$. Specifically,
+In summary (0,0) always exists and is always unstable, (1,0) and (0,1) always exist but their stability depends on $(\alpha_{12},\alpha_{21})$ and, finally, existence and stability of $(u_s,v_s)$ depend on $(\alpha_{12},\alpha_{21})$. Specifically,
 \begin{enumerate}[(a)]
 \item when $\alpha_{12}<1$ and $\alpha_{21}<1$ (1,0) is unstable, (0,1) is unstable and $(u_s, v_s)$ exists, stability to be considered in the next question.
 \item when $\alpha_{12}<1$ and $\alpha_{21}>1$ (1,0) is stable, (0,1) is unstable and $(u_s,v_s)$ does not exist.
@@ -250,7 +250,7 @@ In this model we see four possible outcomes. In three of these cases only one of
 \section{Fitzhugh-Nagumo}
 In 1952 Alan Hodgkin and Andrew Huxley developed the first quantitative model of the propagation of an electrical signal along a squid giant axon. They received the 1963 Nobel Prize in Physiology or Medicine for this work. Fitzhugh and Nagumo simplified this work and showed how the essentials of the excitable process could be distilled into a simpler model, which is analytically tractable.
 
-Let $v$ be membrane voltage potential (note this can go negative) and let $n$ be the cellular recovery variable. The non-dimensional equation controlling voltage spikes in a nerve are given by
+Let $v$ be the membrane voltage potential (note this can go negative) and let $n$ be the cellular recovery variable. The non-dimensional equations controlling voltage spikes in a nerve are given by
 \begin{align}
 \epsilon \dot{v}&=v(0.5-v)(v-1)-n,\label{v}\\
 \dot{n}&=v-\gamma n,\label{n}
@@ -277,7 +277,7 @@ J(v,n)=\left[ {\begin{array}{cc}
    1 & -\gamma \\
   \end{array} } \right].
 \ee
-In the case of $\gamma<16$ only $(0,0)$ exist and, so,
+In the case of $\gamma<16$ only $(0,0)$ exists and, so,
 \bb
 J(0,0)=\left[ {\begin{array}{cc}
    -\frac{1}{2\epsilon}&-\frac{1}{\epsilon} \\
@@ -294,7 +294,7 @@ The $\gamma<16$ phase plane is shown in \fig{Fitzhugh_Nagumo}. Since $1/\gamma$ 
 \end{figure}
 \end{Answ}
 \section{Computer simulation}
-Simulate \eqns{v}{n} with parameters $\gamma=2$ and $\epsilon=0.001$. Specifically, plot the trajectories in the $(v,n)$ space along with the nullclines. Further, initialise the trajectories near the $(0,0)$ steady state but with negative $v$ initially. Hint: for this simulation you will have to use a `stiff' solver. Matlab's standard solver is \texttt{ode23s}. 
+Simulate \eqns{v}{n} with parameters $\gamma=2$ and $\epsilon=0.001$. Specifically, plot the trajectories in the $(v,n)$ space along with the nullclines. Further, initialise the trajectories near the $(0,0)$ steady state but with negative $v$ initially. Hint: for this simulation you will have to use a `stiff' solver. MATLAB's standard solver is \texttt{ode23s}. 
 \begin{enumerate}
 \item What happens to the trajectories \see{Fitzhugh_Nagumo_sims}?
 \item Why is this weird?
@@ -313,10 +313,10 @@ Trajectories with a small perturbation head back to zero. If the perturbation se
 \subsubsection{}
 Even though (0,0) is stable the trajectory takes a long time to get there. This is called a relaxation trajectory.
 \subsubsection{}
-The trajectories with initial conditions below the minimum of the cubic head towards the higher steady, rather than head back to (0,0).
+The trajectories with initial conditions below the minimum of the cubic head towards the higher steady state, rather than head back to (0,0).
 
 \subsubsection{}
-This model does not exhibit hysteresis since the lower steady state never disappears, thus, if the trajectory starts there it stays there, regardless the change in $\gamma$.
+This model does not exhibit hysteresis since the lower steady state never disappears, thus, if the trajectory starts there it stays there, regardless of the change in $\gamma$.
 \end{Answ}
 \section*{Exam revision}
 \section{Damped pendulum}
@@ -326,8 +326,8 @@ The equation of a damped pendulum is
 \ee
 where $k$ and $\eta$ are positive constants.
 \begin{enumerate}
-\item Write the second order differential \eqn{Damped} as two first order ODEs.
-\item Identify the steady states of your two variable system, noting any parameter dependencies.
+\item Write the second-order differential \eqn{Damped} as two first-order ODEs.
+\item Identify the steady states of your two-variable system, noting any parameter dependencies.
 \item Characterise the stability of the steady states, noting any parameter dependencies.
 \item Draw the phase diagram of the system in the $(\theta,\dot{\theta})$ plane. Include nullclines, trajectory directions, stability information of the steady states and draw a number of trajectories to illustrate potential dynamics.
 \end{enumerate}
@@ -383,7 +383,7 @@ and
 \dot{v}_2&=-v_1^2.\label{v2}
 \end{align}
 \begin{enumerate}
-\item Show that the quantities of $u_1^2+u_2^2$ and $v_1^2+v_2^2$ are conserved across their respective systems. What does this mean?
+\item Show that the quantities $u_1^2+u_2^2$ and $v_1^2+v_2^2$ are conserved across their respective systems. What does this mean?
 \item Illustrate the differences between the two systems by calculating the steady states, characterising their stability and drawing the phase planes with as much information as possible.
 \end{enumerate}
 \begin{Answ}
@@ -422,7 +422,7 @@ J(v_1,v_2)=\left[ {\begin{array}{cc}
   -2v_1 & 0 \\
   \end{array} } \right].
 \ee
-In the first case the eigenvalues of (0,0) are $\pm I$, thus, it is a centre. In the second case $J$ the eigenvalues of $(0,v)$ are 0 and $v$. Thus, if $v>0$ the state is unstable and if $v\leq0$ the stability cannot be determined through linearisation as 0 is an eigenvalue. However, we know that $(v_1,v_2)$ must always lie on a circle and from \eqn{v2} we can see that $v_2$ is always decreasing. The minimum value it can obtain is at the bottom of the circle $v_1^2+v_2^2=$constant$=v_1(0)^2+v_2(0)^2$ (where we are specifying that the constant depends on the initial condition), \ie when $v_1=0$, which causes the system to stop evolving. Thus, all trajectories will evolve to $(0,v_2)$, where $v_2=-\sqrt{v_1(0)^2+v_2(0)^2}$.
+In the first case the eigenvalues of (0,0) are $\pm I$, thus, it is a centre. In the second case the eigenvalues of $J$ of $(0,v)$ are 0 and $v$. Thus, if $v>0$ the state is unstable and if $v\leq0$ the stability cannot be determined through linearisation as 0 is an eigenvalue. However, we know that $(v_1,v_2)$ must always lie on a circle and from \eqn{v2} we can see that $v_2$ is always decreasing. The minimum value it can obtain is at the bottom of the circle $v_1^2+v_2^2=$constant$=v_1(0)^2+v_2(0)^2$ (where we are specifying that the constant depends on the initial condition), \ie when $v_1=0$, which causes the system to stop evolving. Thus, all trajectories will evolve to $(0,v_2)$, where $v_2=-\sqrt{v_1(0)^2+v_2(0)^2}$.
 \end{Answ}
 %\section{Lotka-Volterra equations}\label{Lotka-Volterra equations}
 %Data on the number of Canadian lynx and snowshoe hair pelts traded where collected by the  Hudson Bay trading company\footnote{Caution about the data: I have not been able to verify this data, but this is the data (or rather the graph) that is always cited. This particular set of data came from scanning in the graph from Odum's "Fundamentals of Ecology", p. 191 which is often cited. Odum says that his graph is taken from MacLulich's "Fluctuations in the numbers of varying hare", 1937, which is not widely available. Some authors caution that this data is actually a composition of several time series, and should probably not be analyzed as a whole, and that some of the lynx data was actually missing. It is said that the data was collected from Hudson's Bay historical records, and does not reflect animal populations, but rather the number of pelts turned in for trading (a large number of which came from Native Americans- mentioned because there were some medical outbreaks during these years which could account for skewed data). The data are presented here with these cautions. }. The data are presented in \fig{Lynx_hare} and has been used as a proxy for population data.
@@ -1155,3 +1155,4 @@ In the first case the eigenvalues of (0,0) are $\pm I$, thus, it is a centre. In
 %%R'=\log\l \frac{S'}{S'_0}\r.
 %%\ee
 \end{document}
+

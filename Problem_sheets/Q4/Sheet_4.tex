@@ -122,7 +122,7 @@
 \author{Thomas E. Woolley\\Last edited on:}
 \maketitle
 \section{Lotka-Volterra equations}\label{Lotka-Volterra equations}
-Data on the number of Canadian lynx and snowshoe hair pelts traded were collected by the  Hudson Bay trading company\footnote{Caution about the data: I have not been able to verify this data, but this is the data (or rather the graph) that is always cited. This particular set of data came from scanning in the graph from Odum's "Fundamentals of Ecology", p. 191 which is often cited. Odum says that his graph is taken from MacLulich's "Fluctuations in the numbers of varying hare", 1937, which is not widely available. Some authors caution that this data is actually a composition of several time series, and should probably not be analysed as a whole, and that some of the lynx data was actually missing. It is said that the data was collected from Hudson's Bay historical records, and does not reflect animal populations, but rather the number of pelts turned in for trading (a large number of which came from Native Americans- mentioned because there were some medical outbreaks during these years which could account for skewed data). The data are presented here with these cautions. }. The data are presented in \fig{Lynx_hare} and has been used as a proxy for population data.
+Data on the number of Canadian lynx and snowshoe hare pelts traded were collected by the  Hudson Bay trading company\footnote{Caution about the data: I have not been able to verify this data, but this is the data (or rather the graph) that is always cited. This particular set of data came from scanning in the graph from Odum's "Fundamentals of Ecology", p. 191 which is often cited. Odum says that his graph is taken from MacLulich's "Fluctuations in the numbers of varying hare", 1937, which is not widely available. Some authors caution that this data is actually a composition of several time series, and should probably not be analysed as a whole, and that some of the lynx data was actually missing. It is said that the data was collected from Hudson's Bay historical records, and does not reflect animal populations, but rather the number of pelts turned in for trading (a large number of which came from Native Americans- mentioned because there were some medical outbreaks during these years which could account for skewed data). The data are presented here with these cautions. }. The data are presented in \fig{Lynx_hare} and have been used as a proxy for population data.
 \begin{figure}[h!!!tb]
 \centering
 \subfigure[]{\includegraphics[height=\tttp]{../../Pictures/Lynx_chasing_hare.jpeg}}
@@ -144,7 +144,7 @@ In this question we consider a mathematical model that has been suggested to des
 \end{align}
 where the time derivative is with respect to some non-dimensionalised time.
 
-Provide the dimensional scales of the population (i.e. $[L]$, $[H]$ and $[t]$) as well as the definition of $\alpha$. Note, that you are not required to show that $[L]$ and $[H]$ have the right dimension and $\alpha$ is dimensionless, but it is a good way to check your working.
+Provide the dimensional scales of the population (i.e. $[L]$, $[H]$ and $[t]$) as well as the definition of $\alpha$. Note that you are not required to show that $[L]$ and $[H]$ have the right dimension and $\alpha$ is dimensionless, but it is a good way to check your working.
 \item What are the steady states?
 \item What is the linear stability of the states?
 \item Consider
@@ -163,9 +163,9 @@ where $C$ is a constant of integration that depends on the initial conditions, w
 The populations oscillate. A rise in prey comes before a rise in predator. Other sensible comments are allowed.
 \subsubsection{}
 \begin{enumerate}[(a)]
-\item Prey does not die naturally, a prey death rate could be included.
-\item Predator and prey do not need partners to reproduce, such reproduction equations could be included.
-\item Predation is a one to one transference, usually more prey are needed to produce enough energy to provide a new predator generation. Instead of producing two lynx we could rewrite the predation equation to give $1+\epsilon$ predators.
+\item Prey do not die naturally; a prey death rate could be included.
+\item Predator and prey do not need partners to reproduce; such reproduction equations could be included.
+\item Predation is a one-to-one transference; usually more prey are needed to produce enough energy to provide a new predator generation. Instead of producing two lynx we could rewrite the predation equation to give $1+\epsilon$ predators.
 \item Other assumptions and fixes are available.
 \end{enumerate}
 \subsubsection{}
@@ -210,7 +210,7 @@ the eigenvalues are, thus, $\lambda=\pm\sqrt{-\alpha}$, which are purely imagina
 \bb
 \frac{\rd u}{\rd v}=\frac{u\l 1-v\r}{\alpha v\l u-1\r}
 \ee
-which can reformulated to be
+which can be reformulated to be
 \bb
 \int^u_{u_0}\frac{\alpha(u-1)}{u}\rd u=\int^v_{v_0}\frac{1-v}{v}\rd v,
 \ee
@@ -233,7 +233,7 @@ which can finally be rearranged to produce
 where $C=\alpha(u_0-\log(u_0))+v_0-\log(v_0)$.
 \end{Answ}
 \section{Computer simulation}
-Let $\alpha=1/2$ and simulate \eqns{LV1}{LV2}. Plot the results in the $(u,v)$ plane along with \eqn{LV_conserved}. Note you will have to choose appropriate initial conditions, specify $C$ in terms of these initial conditions and use an implicit plotting algorithm such as \texttt{fimplicit} in MatLab.
+Let $\alpha=1/2$ and simulate \eqns{LV1}{LV2}. Plot the results in the $(u,v)$ plane along with \eqn{LV_conserved}. Note you will have to choose appropriate initial conditions, specify $C$ in terms of these initial conditions and use an implicit plotting algorithm such as \texttt{fimplicit} in MATLAB.
 \begin{enumerate}
 \item Vary the initial conditions, what do you notice?
 \item Do your discoveries accord with the results from question \ref{Lotka-Volterra equations}?
@@ -253,7 +253,7 @@ Different initial conditions cause the trajectory to be on different parallel os
 \subsubsection{}
 The simulations in \fig{LV_sims} exactly match the linearised stability solution suggesting that (1,1) is a centre. However, the simulations illustrate that this is a global phenomenon, in that all trajectories periodically oscillate around (1,1).
 \subsubsection{}
-The time course simulation in \fig{LV_time_sims} illustrate that the trajectories do have similar traits of periodic oscillations and that growth in the lynx population lags behind growth in the  hare population.
+The time course simulation in \fig{LV_time_sims} illustrates that the trajectories do have similar traits of periodic oscillations and that growth in the lynx population lags behind growth in the  hare population.
 \begin{figure}[h!!!tb]
 \centering
 \includegraphics[height=\tttp]{../../Pictures/LV_time_sims.png}
@@ -273,7 +273,7 @@ Consider the following set of equations which model the interactions of two popu
 
 Hint 1: by the symmetry of $N_1$ and $N_2$ in the equations whatever $N_1$ is doing to $N_2$, $N_2$ is doing to $N_1$. This means that the dynamics could be mutual creation (mutualism) or mutual destruction (competition).
 
-Hint 2: Compare the above equations to regular logistic curve $\dot{u}=ru(1-u/K)$. What happens if we increase or decrease $K$? Thus, what influence does increasing or decreasing $N_1$ have on $N_2$?
+Hint 2: Compare the above equations to the regular logistic curve $\dot{u}=ru(1-u/K)$. What happens if we increase or decrease $K$? Thus, what influence does increasing or decreasing $N_1$ have on $N_2$?
 
 \item Use $N_1=K_1u_1$, $N_2=K_2u_2$, $t=\tau/r_1$ to non-dimensionalise the equations. Define $\rho=r_2/r_1$, $\alpha_{12}=b_{12}K_2/K_1$ and $\alpha_{21}=b_{21}K_1/K_2$. Rewrite the system parameters in terms of $\alpha_{12}$, $\alpha_{21}$ and $\rho$.
 
@@ -285,13 +285,13 @@ where
 \bb
 \bar{u}_1=\frac{1+\alpha_{12}}{1-\alpha_{12}\alpha_{21}},\quad\bar{u}_2=\frac{1+\alpha_{21}}{1-\alpha_{12}\alpha_{21}}.
 \ee
-What restrictions (if any) do we need to place of the steady states?
-\item Determine the linear stability of the steady states. Taking care to note any bifurcation conditions and how they relate to the restrictions on the steady state existence.
+What restrictions (if any) do we need to place on the steady states?
+\item Determine the linear stability of the steady states. Take care to note any bifurcation conditions and how they relate to the restrictions on the steady state existence.
 \end{enumerate}
 \begin{Answ}
 \subsection{Answers}
 \subsubsection{}
-An increase in $N_1$ causes and increase in the steady state of $N_2$, thus, we have mutualism. Namely the population both cause each other to grow.
+An increase in $N_1$ causes an increase in the steady state of $N_2$, thus, we have mutualism. Namely the populations both cause each other to grow.
 \subsubsection{}
 The equations simplify to:
 \begin{align}
@@ -403,8 +403,8 @@ The equations relate the properties of a two-dimensional fluid layer uniformly w
 
 For simplicity, let $\sigma=\beta=1$.
 \begin{enumerate}
-\item What are the steady states, noting dependencies of $\rho$?
-\item Characterise the stability of the  zero steady state only, noting dependencies of $\rho$. Note that you will have to find the eigenvalues of a $3\times 3$ matrix. Substituting in the values of the steady state will help you. The non-zero steady states are always either stable nodes or stable spirals when they exist.
+\item What are the steady states, noting dependence on $\rho$?
+\item Characterise the stability of the  zero steady state only, noting dependence on $\rho$. Note that you will have to find the eigenvalues of a $3\times 3$ matrix. Substituting in the values of the steady state will help you. The non-zero steady states are always either stable nodes or stable spirals when they exist.
 \item Simulations for $\rho>1$ and $\rho<1$ are illustrated in \fig{Lorenz_stable}. Do these accord with your findings?
 \end{enumerate}
 
@@ -489,7 +489,7 @@ So the state is unstable. The non-zero steady states are $(\pm9,\pm9,27)$, the a
 \bb
 \lambda_1\approx-14.1,\quad\lambda_2\approx 0.04+10.7I\quad\lambda_3=0.04-10.7I.
 \ee
-Thus, these states are also unstable. Normally, when all steady steady states are unstable we would expect the trajectory to tend to infinity along one of the coordinates, creating a singularity. However, the trajectories in these simulations are always bounded, thus, they cannot escape to infinity. Equally, they can not oscillate around one of the critical point because otherwise it would be a centre and not unstable. Thus, something more complicated must be occurring. Namely, chaos!
+Thus, these states are also unstable. Normally, when all steady states are unstable we would expect the trajectory to tend to infinity along one of the coordinates, creating a singularity. However, the trajectories in these simulations are always bounded, thus, they cannot escape to infinity. Equally, they cannot oscillate around one of the critical points because otherwise it would be a centre and not unstable. Thus, something more complicated must be occurring. Namely, chaos!
 \end{Answ}
 %
 %\section{Michaelis-Menten Enzyme dynamics}
@@ -866,3 +866,4 @@ Thus, these states are also unstable. Normally, when all steady steady states ar
 %R'=\log\l \frac{S'}{S'_0}\r.
 %\ee
 \end{document}
+

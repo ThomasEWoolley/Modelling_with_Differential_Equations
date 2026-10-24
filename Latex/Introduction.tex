@@ -2,7 +2,7 @@
 In this course we will be concerned with ordinary differential equations, ODEs.
 
 \begin{defin}
-An ordinary differential equation (ODE) is a differential equation containing one or more functions of \underline{\textbf{exactly one}} independent variable and its derivatives.
+An ordinary differential equation (ODE) is a differential equation containing one or more functions of \underline{\textbf{exactly one}} independent variable and derivatives of those functions.
 \end{defin}
 
 ODEs relate the change of one variable to changes in another variable and can be used to model and understand a wide variety of phenomena, such as projectile motion, animal population interactions and the progression of chemical reactions.
@@ -57,7 +57,7 @@ Note instead of specifying the time at which a population takes an arbitrary val
 t_2=\frac{1}{r}\log\l 2\r.
 \ee
 
-Critically, once a model is constructed and an answer is found, we must consider whether if it is a good model or not. Clearly this model has problems because it predicts the population will grow exponentially quickly, without bound. The key problematic assumption that we have made is that the resources (\eg space, nutrients, etc.) do not run out. Although this may be a fine assumption to begin with, eventually the bacteria will be limited by competition.}
+Critically, once a model is constructed and an answer is found, we must consider whether it is a good model or not. Clearly this model has problems because it predicts the population will grow exponentially quickly, without bound. The key problematic assumption that we have made is that the resources (\eg space, nutrients, etc.) do not run out. Although this may be a fine assumption to begin with, eventually the bacteria will be limited by competition.}
 %\begin{figure}[!!!h!!!tb]
 {\centering
 \includegraphics[width=\textwidth]{../Pictures/Bacteria.png}}
@@ -66,7 +66,7 @@ Critically, once a model is constructed and an answer is found, we must consider
 
 
 \begin{example}[frametitle=Bacteria and nutrient populations.]\label{Logi_growth}
-\COL{Imagine a case similar to the one above, but we introduce a nutrient population, $v$. We assume that a bacterium can divide at a rate $r$ if and only if it can interact with enough nutrient. However, the nutrient is depleted at a rate $r$ as the bacteria interacts with it.
+\COL{Imagine a case similar to the one above, but we introduce a nutrient population, $v$. We assume that a bacterium can divide at a rate $r$ if and only if it can interact with enough nutrient. However, the nutrient is depleted at a rate $r$ as the bacteria interact with it.
 
 Here, the equation governing this system is going to be provided. However, later on we will learn how to write down and interpret interaction equations of the form
 \bb
@@ -86,7 +86,7 @@ We can substitute \eqn{Conserved_c} into \eqn{Pop_u} to get
 \bb
 \frac{\rd u}{\rd t}=ru(c-u).\label{Log_1}
 \ee
-This is known as the logistic equation and we will see it many times throughout these notes, it is a simple example of competition between species for resources.}
+This is known as the logistic equation and we will see it many times throughout these notes; it is a simple example of competition between species for resources.}
 
 \COL{Using partial fractions, we can directly solve \eqn{Log_1}. Specifically,
 \begin{align}
@@ -99,7 +99,7 @@ This is known as the logistic equation and we will see it many times throughout 
 \end{align}
 see \fig{Logistic}.
 
-Comparing the models of bacteria growth, illustrated in \fig{Growth_examples}, we see that \eqn{Log_1} is a more realistic model for growth because there is a maximum population value which can be supported by the experiment. This maximum value is given by $c$ and is known as the carrying capacity. The parameter grouping $rc$ is also important as this control the time scale over which this maximum is obtained.}
+Comparing the models of bacteria growth, illustrated in \fig{Growth_examples}, we see that \eqn{Log_1} is a more realistic model for growth because there is a maximum population value which can be supported by the experiment. This maximum value is given by $c$ and is known as the carrying capacity. The parameter grouping $rc$ is also important as this controls the time scale over which this maximum is obtained.}
 \end{example}
 \begin{figure}[!!!h!!!tb]
 {\centering
@@ -110,7 +110,7 @@ Comparing the models of bacteria growth, illustrated in \fig{Growth_examples}, w
 
 
 \begin{example}[frametitle=Duffing's equations.]\label{Duffing_example}
-For our last example, consider the Duffing oscillator. The equation is simply a toy example that can be used to examine complex phenomena in a simple equation. In terms of interpretation, you can think of the equation as modelling the displacement of a beam near two magnetics. Critically, the beam and magnets are being forced to oscillate with amplitude $\gamma$ and frequency $\omega$ \see{Duffing_beam}.
+For our last example, consider the Duffing oscillator. The equation is simply a toy example that can be used to examine complex phenomena in a simple equation. In terms of interpretation, you can think of the equation as modelling the displacement of a beam near two magnets. Critically, the beam and magnets are being forced to oscillate with amplitude $\gamma$ and frequency $\omega$ \see{Duffing_beam}.
 \bb
 \underbrace{\frac{\rd^2 x}{\rd t^2}}_{\textrm{Acceleration}}+\underbrace{2\delta\frac{\rd x}{\rd t}}_{\textrm{Air resistance}}+\underbrace{\beta x+\alpha x^3}_{\textrm{Beam's restorative force}}=\underbrace{\gamma\cos(\omega t)}_{\textrm{Forcing term}}.\label{Duffing_eqn}
 \ee
@@ -127,12 +127,12 @@ We are not going to try and analytically solve or analyse Duffing's equation. In
 \begin{defin}
 The \textbf{order} of a differential equation is the value of the highest derivative in the equation.
 \end{defin}
-Examples \ref{Logi_growth} and \ref{Expo_growth} are both first order equations, whilst example \ref{Duffing_example} is a second order equation. Generally (like polynomial equations of order) a differential equation of order $n$ will have $n$ linearly independent solutions.
+Examples \ref{Logi_growth} and \ref{Expo_growth} are both first-order equations, whilst example \ref{Duffing_example} is a second-order equation. Generally (like polynomial equations of order) a differential equation of order $n$ will have $n$ linearly independent solutions.
 
 \begin{defin}
 A system of differential equations is \textbf{autonomous} if the system does not explicitly depend on the independent variable.
 \end{defin}
-When the variable is time, they are also called time-invariant systems, this simply means that we are assuming that the defined underlying laws of the system are identical to those for any point in the past, or future.
+When the variable is time, they are also called time-invariant systems; this simply means that we are assuming that the defined underlying laws of the system are identical to those for any point in the past, or future.
 
 \begin{defin}
 To save time we use a dot or prime mark to denote a derivative with respect to the argument, thus,
@@ -140,7 +140,7 @@ To save time we use a dot or prime mark to denote a derivative with respect to t
 \dot{\bm{u}}(t)=\bm{u}'(t)=\frac{\rd \bm{u}}{\rd t}.
 \ee
 \end{defin}
-Traditionally, dots are primarily used when the variable is time and primes are used otherwise. Note that higher orders derivatives are signified by the appropriate number of dots or primes. Namely, a second derivative would be denoted by two dots or primes, etc.
+Traditionally, dots are primarily used when the variable is time and primes are used otherwise. Note that higher order derivatives are signified by the appropriate number of dots or primes. Namely, a second derivative would be denoted by two dots or primes, etc.
 
 \begin{defin}
 A \textbf{trajectory} is a solution, $u(t)$.
@@ -149,17 +149,17 @@ The graphs in \figs{Growth_examples}{Duffing} illustrate single trajectories of 
 
 
 
-In this course we are going to occupy ourselves with systems of autonomous first order equations, of the form
+In this course we are going to occupy ourselves with systems of autonomous first-order equations, of the form
 \bb
 \frac{\rd \bm{u}}{\rd t}=\dot{\bm{u}}=\bm{F}(\bm{u}).\label{ODE}
 \ee
-This may seem highly restrictive. However, systems of first order equations can have extremely complicated properties, such as oscillations and chaos, which we will try to understand.
+This may seem highly restrictive. However, systems of first-order equations can have extremely complicated properties, such as oscillations and chaos, which we will try to understand.
 
-\COL{Critically, equations of higher order can be written as a system of first order equations. For example, if
+\COL{Critically, equations of higher order can be written as a system of first-order equations. For example, if
 \bb
 \bm{G}\l \bm{u},\frac{\rd \bm{u}}{\rd t},\frac{\rd^2 \bm{u}}{\rd t^2},\dots,\frac{\rd^n \bm{u}}{\rd t^n}\r=0
 \ee
-then we can define $n-1$ new equations of the form $\bm{v}_1=\rd \bm{u}/\rd t$ and $\bm{v}_i=\rd \bm{v}_{i-1}/\rd t=\rd^{i} \bm{u}/\rd t^{i}$ for $2\leq i \leq n-1$ to produce the first order system
+then we can define $n-1$ new equations of the form $\bm{v}_1=\rd \bm{u}/\rd t$ and $\bm{v}_i=\rd \bm{v}_{i-1}/\rd t=\rd^{i} \bm{u}/\rd t^{i}$ for $2\leq i \leq n-1$ to produce the first-order system
 \begin{align}
 &\bm{G}\l \bm{u},\bm{v}_1,\dots,\bm{v}_{n-1},\frac{\rd \bm{v}_{n-1}}{\rd t}\r=0,\\
 &\frac{\rd \bm{u}}{\rd t}=\bm{v}_1,\\
@@ -171,7 +171,7 @@ then we can define $n-1$ new equations of the form $\bm{v}_1=\rd \bm{u}/\rd t$ a
 \bb
 v=\frac{\rd x}{\rd t}
 \ee
-then we are able to convert the single second order equation seen in \eqn{Duffing_equation} to two first}\COL{ order ODEs,
+then we are able to convert the single second-order equation seen in \eqn{Duffing_equation} to two first}\COL{ order ODEs,
 \begin{align}
 \frac{\rd v}{\rd t}&=-2\delta v-(\beta x+\alpha x^3)\\
 \frac{\rd x}{\rd t}&=v.
@@ -196,7 +196,7 @@ which produces a contradiction. Hence the curves cannot intersect.}
 
 
 \subsection{Existence and uniqueness}
-With this being an applied mathematics course we are often very `fast and loose' with our rigour. However, it is good to know that theorems have been proven regarding the existence and unique of solution to \eqn{ODE}. Here we will quote the theorem in one dimension, but the theorem can be expanded to any number of variables.
+With this being an applied mathematics course we are often very `fast and loose' with our rigour. However, it is good to know that theorems have been proven regarding the existence and uniqueness of solutions to \eqn{ODE}. Here we will quote the theorem in one dimension, but the theorem can be expanded to any number of variables.
 \begin{thm}Existence-Uniqueness theorem.
 
 Suppose the function $F(u)$ is differentiable and the derivative, $F'(u)$, is continuous for all values of $u$ then there will exist some constant $c>0$ such that
@@ -246,26 +246,25 @@ See \fig{Monotonics} for examples of definitions \ref{Monotonic_def} and \ref{St
 
 
 \begin{cor}
-Suppose $F(u)$ is a scalar function that is continuously differentiable. The solution, $u(t)$, of the one dimensional ODE,
+Suppose $f(u)$ is a scalar function that is continuously differentiable. The solution, $u(t)$, of the one-dimensional ODE,
 \bb
-\dot{u}=F(u),\quad u(t_0)=u_0,
+\dot{u}=f(u),\quad u(t_0)=u_0,
 \ee
 cannot oscillate. Specifically, $u(t)$ must either be constant, or a monotonically increasing, or decreasing function.
 \end{cor}
 \begin{proof}
-\COL{Suppose that $u^*(t)$ is non-monotonic. By definition its derivative changes sign. By continuity there is somewhere, $t_c$, such that $\rd u^*(t_c)/\rd t=0$.
-Thus, $u^*$ is a solution of
+\COL{Suppose that $u(t)$ is non-monotonic and hence nonconstant. By definition its derivative changes sign. By continuity there is somewhere, $t_c$, such that $\rd u(t_c)/\rd t=0$.  Let $u(t_c)=u^*$ then, $u$ is a solution of
 \bb
-\dot{u^*}=F(u^*),\quad u^*(t_c)=u^*_c.\label{Starred}
+\dot{u}=f(u),\quad u(t_c)=u^*.\label{Starred}
 \ee
-Let us construct the constant function $u\equiv u^*_c$. We note that, $F(u^*(t_c))=0$ and, thus,  $u$ is also a solution to \eqn{Starred}. However, this means that we have two different solutions to \eqn{Starred} violating theorem \ref{Existence_Uniqueness}. By contradiction $u^*(t)$ has to be monotonic.}
+Let us construct the constant function $u_c\equiv u^*$. We note that,  $\rd u_c/\rd t=0$ since $u_c$ is a constant. Also $f(u_c)=f(u^*)=f(u(t_c))=0$ and, thus,  $u_c$ is also a solution to \eqn{Starred}. However, this means that we have two different solutions, $u$ and $u_c$, to \eqn{Starred} violating the existence uniqueness theorem. By contradiction $u(t)$ has to be monotonic.}
 \end{proof}
 This means that to have oscillatory phenomena in a system either we need more than one population, or the system has to be non-autonomous. See example \ref{Duffing_example} for a case where both of these factors are present and do indeed produce oscillations (and chaos).
 
 
 
 \section{Taylor expansions}
-This section is to remind you of the Taylor expansion technique. The Taylor expansion is one of the most powerful tools for an applied mathematician because very often we want to know what happens to a trajectory near some critical point. Although the kinetics maybe very non-linear and difficult to understand globally we can use the Taylor expansion to simplify the dynamics in a small region around the critical point in order to gain knowledge about the dynamics in this region.
+This section is to remind you of the Taylor expansion technique. The Taylor expansion is one of the most powerful tools for an applied mathematician because very often we want to know what happens to a trajectory near some critical point. Although the kinetics may be very non-linear and difficult to understand globally we can use the Taylor expansion to simplify the dynamics in a small region around the critical point in order to gain knowledge about the dynamics in this region.
 
 \begin{thm}\label{Taylor}
 Suppose $f(x)$ is infinitely differentiable at a point $a$ then the Taylor series of $f$ at $a$ is the power series
@@ -379,7 +378,7 @@ and
 \bb
 \theta=\arctan\l\frac{y}{x}\r,\quad \textrm{or}\quad\theta=\arccos\l\frac{x}{\sqrt{x^2+y^2}}\r,\quad \textrm{or}\quad\theta=\arcsin\l\frac{y}{\sqrt{x^2+y^2}}\r.\label{theta_eqns}
 \ee
-where the appropriate function $\theta(x,y)$ is chosen depending on which ever is easiest to use.
+where the appropriate function $\theta(x,y)$ is chosen depending on whichever is easiest to use.
 
 \begin{example}[frametitle=Cartesian to polar conversion.]
 \COL{Suppose
@@ -397,7 +396,7 @@ At which point we can exchange all Cartesian coordinates for their polar analogu
 \bb
 \dot{r}=\cos(\theta)f(r\cos(\theta),r\sin(\theta))+\sin(\theta)g(r\cos(\theta),r\sin(\theta)).
 \ee
-Next we need $\dot{\theta}$. Since there are multiple (equivalent) ways of representing $\theta$ there are multiple (equivalent) forms of the derivative, here only one will be presented. Other forms follow exactly the same procedure. We note that
+Next we need $\dot{\theta}$. Since there are multiple (equivalent) ways of representing $\theta$ there are multiple (equivalent) forms of the derivative; here only one will be presented. Other forms follow exactly the same procedure. We note that
 \bb
 \dot{x}=f(r\cos(\theta),r\sin(\theta))=\frac{\rd \l r\cos(\theta)\r}{\rd t}=\dot{r}\cos(\theta)-r\sin(\theta)\dot{\theta}.\label{xdot_to_r}
 \ee
@@ -410,7 +409,7 @@ Next we need $\dot{\theta}$. Since there are multiple (equivalent) ways of repre
 where the arguments of $f$ and $g$ have been suppressed for brevity.}
 \end{example}
 
-In the above example we created $\dot{r}$ first and then used this to produce $\dot{\theta}$. In following example we show how to do the substitution all in one go.
+In the above example we created $\dot{r}$ first and then used this to produce $\dot{\theta}$. In the following example we show how to do the substitution all in one go.
 \begin{example}[frametitle= A quicker conversion]
 \COL{From
 \begin{align}
@@ -447,7 +446,7 @@ which allows us to reproduce
 \ee
 }
 \end{example}
-Generally, nonlinear equations are not solvable however, we will see in the next example the polar coordinates can convert nonlinearities in $(x,r)$ to linearities in $(r,\theta)$
+Generally, nonlinear equations are not solvable; however, we will see in the next example that polar coordinates can convert nonlinearities in $(x,r)$ to linearities in $(r,\theta)$
 \begin{example}[frametitle= Solving ODEs in polar coordinates]
 \COL{Consider the following system
 \begin{align}
@@ -486,7 +485,7 @@ r(t)=\frac{r_0}{\sqrt{r_0^2+e^{-2t}\l 1-r_0^2\r}}.\label{r_lim}
 \ee
 From \eqn{r_lim} we can see that $r(t)\rightarrow 1$ as $t\rightarrow \infty$. Critically, we can reconstruct the Cartesian solution by considering the polar identities. Firstly, since $\theta=-t$ the solutions spiral at a constant rate. Note the spirals go clockwise as we normally take positive angles to be anticlockwise. Further, any trajectory must head towards the circle $r=1$.
 
-The full dynamics are simulated in \fig{Polar_plot}
+The full dynamics are simulated in \fig{Polar_plot}.
 }
 \end{example}
 \begin{figure}[h!!!tb]
@@ -504,8 +503,10 @@ By the end of this chapter you should be able to:
 \item prove that an ODE of one variable cannot oscillate;
 \item derive single variable Taylor series of any order;
 \item derive multivariate Taylor series up to first order;
-\item convert systems of ODE equations of Cartesian variables in to polar variables and back again.
+\item convert systems of ODE equations of Cartesian variables into polar variables and back again.
 \end{todolist}
+
+
 
 
 

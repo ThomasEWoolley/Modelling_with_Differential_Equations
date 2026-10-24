@@ -2,7 +2,7 @@
 \makeatletter
 \usepackage{lmodern}
 \usepackage{comment}
-\excludecomment{Answ}
+\includecomment{Answ}
 \newcounter{ItemCounter}
 \usepackage{listings}
 \usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
@@ -134,16 +134,16 @@ respectively. Further, let $\hat{\bm{r}}$ and $\hat{\bm{\theta}}$ be the normali
 \caption{\label{Polars} Cartesian and polar coordinates.}
 \end{figure}
 \begin{enumerate}
-\item \label{1} From \fig{Polars} we can derive that relationship that
+\item \label{1} From \fig{Polars} we can derive the relationship that
 \bb
 \hat{\bm{\theta}}=\myvec{-\sin(\theta)\\ \cos(\theta)}.
 \ee
-What is the equivalent relationship for $\hat{\bm{r}}$.
+What is the equivalent relationship for $\hat{\bm{r}}$?
 \item \label{2} Rewrite the general coordinate vector
 \bb
 \bm{r}=\myvec{x\\y}
 \ee
-in terms $r$, $\theta$, $\cos$ and $\sin$.
+in terms of $r$, $\theta$, $\cos$ and $\sin$.
 \item \label{3} Using questions \ref{1} and \ref{2} show that we can rewrite the coordinate vector $\bm{r}$ as
 \bb
 \bm{r}=r\hat{\bm{r}}.
@@ -152,7 +152,7 @@ in terms $r$, $\theta$, $\cos$ and $\sin$.
 \bb
 \dot{\hat{\bm{r}}}=\myvec{-\sin(\theta)\\\cos(\theta)}\dot{\theta}.
 \ee
-\item \label{5} Find a similar results for $\dot{\hat{\bm{\theta}}}$.
+\item \label{5} Find a similar result for $\dot{\hat{\bm{\theta}}}$.
 \item \label{6} Rewrite the results of questions \ref{4} and \ref{5} to give $\dot{\hat{\bm{r}}}$ and $\dot{\hat{\bm{\theta}}}$ in terms of $\hat{\bm{r}}$ and $\hat{\bm{\theta}}$ (and $r$ and $\theta$).
 \item \label{7} Combine questions \ref{3} and \ref{6} to show that
 \bb
@@ -192,7 +192,7 @@ Having finished question \ref{9} you will have proven Kepler's Second Law of Pla
 \bm{r}=\myvec{r\cos(\theta)\\r\sin(\theta)}=r\myvec{\cos(\theta)\\\sin(\theta)}=r\hat{\bm{r}}.
 \ee
 \subsubsection{}
-Taking derivatives of each component separately and remembering that by chain rule $\rd f(u)/\rd t=f'(u)\rd u/\rd t$ we derive
+Taking derivatives of each component separately and remembering that by the chain rule $\rd f(u)/\rd t=f'(u)\rd u/\rd t$ we derive
 \bb
 \dot{\hat{\bm{r}}}=\myvec{-\sin(\theta)\dot{\theta}\\\cos(\theta)\dot{\theta}}.\label{rdot}
 \ee
@@ -201,7 +201,7 @@ Taking derivatives of each component separately and remembering that by chain ru
 \dot{\hat{\bm{\theta}}}=\myvec{-\cos(\theta)\dot{\theta}\\-\sin(\theta)\dot{\theta}}.\label{thetadot}
 \ee
 \subsubsection{}
-Comparing the vectors forms in \eqns{rdot}{thetadot}
+Comparing the vector forms in \eqns{rdot}{thetadot}
 \bb
 \dot{\hat{\bm{\theta}}}=-\hat{\bm{r}}\dot{\theta},\quad
 \dot{\hat{\bm{r}}}=\hat{\bm{\theta}}\dot{\theta}.
@@ -234,15 +234,15 @@ Consider two planets with the same mass, $m$, and positions $\bm{r}_1(t)$ and $\
 \centering
 \subfigure[\label{TBP_1}]{\includegraphics[width=\ttp]{../../Pictures/Two_body_problem.png}}
 \subfigure[\label{TBP_2}]{\includegraphics[width=\ttp]{../../Pictures/Two_body_problem_new_origin.png}}
-\caption{\label{Two_body_problem} (a) Positions and forces in the two body problem. The position $(\bm{r}_1+\bm{r}_2)/2$ is the centre of mass of the two body system. (b) Redefining the system so that planet 1 is the origin.}
+\caption{\label{Two_body_problem} (a) Positions and forces in the two-body problem. The position $(\bm{r}_1+\bm{r}_2)/2$ is the centre of mass of the two body system. (b) Redefining the system so that planet 1 is the origin.}
 \end{figure}
 \begin{enumerate}
-\item Using Newton's Law of Gravitation what are the forces $\bm{F}_{12}$ and $\bm{F}_{21}$.
+\item Using Newton's Law of Gravitation what are the forces $\bm{F}_{12}$ and $\bm{F}_{21}$?
 \item \label{Planet_N2L}Using Newton's Second Law of Motion, write down two governing equations for the positions of the two planets in terms of the forces derived in part 1 and the accelerations, $\ddot{\bm{r}}_1$ and $\ddot{\bm{r}}_2$. Deduce that
 \bb
 \ddot{\bm{r}}_1+\ddot{\bm{r}}_2=0.
 \ee
-By proving this result and considering \fig{TBP_1} we see that the the  centre  of  mass  of  the  two-body  system  exhibits  no acceleration. Thus, as the two planets orbit each other they can travel through space, but their movement must be consistent with the fact that their centre of mass is stationary, or moving at a constant speed.
+By proving this result and considering \fig{TBP_1} we see that the  centre  of  mass  of  the  two-body  system  exhibits  no acceleration. Thus, as the two planets orbit each other they can travel through space, but their movement must be consistent with the fact that their centre of mass is stationary, or moving at a constant speed.
 \setcounter{ItemCounter}{\value{enumi}}
 \end{enumerate}
 
@@ -288,7 +288,7 @@ or, from question \ref{Polar_derivatives},
 \ee
 where $C$ is a constant.
 \begin{enumerate}
-\item Define the variable $u=C^2/R$ show that
+\item Define the variable $u=C^2/R$ and show that
 \bb
 \dot{\Theta}=\frac{u^2}{C^3}.
 \ee
@@ -386,11 +386,11 @@ over the range $0\leq \Theta\leq 2\pi$ for multiple values of $\alpha$. Plot the
 \subsubsection{}
 \begin{enumerate}[(a)]
 \item  If $\alpha$ is really big then we get a very tight ellipse around the origin.
-\item  If $\alpha=1$ we get a circle or radius 1.
+\item  If $\alpha=1$ we get a circle of radius 1.
 \item  If $\alpha<1/2$ the function diverges to infinity as $\Theta$ increases. This means that the planet escapes the gravitational pull of the central planet.
 \end{enumerate}
 \subsubsection{}
-If we make the identification $\alpha=Gm$ then we reproduce the planetary motion curve. Thus, for planets with very large mass we obtain highly elliptical orbits. For planets with a middling mass the orbits are circular. For planets with low mass the planets hardly effect one another and, thus, do not orbit.
+If we make the identification $\alpha=Gm$ then we reproduce the planetary motion curve. Thus, for planets with very large mass we obtain highly elliptical orbits. For planets with a middling mass the orbits are circular. For planets with low mass the planets hardly affect one another and, thus, do not orbit.
 \end{Answ}
 
 \section{Law of Mass Action}
@@ -431,7 +431,7 @@ u_1\mathrel{\mathop{\rightleftarrows}^{d}_{d}}u_2\mathrel{\mathop{\rightleftarro
 \item
 \begin{align}
 &\dot{u}_1=d(u_2-u_1),\nonumber\\
-&\dot{u}_k=d(u_{k+1}-2u_1+u_{k-1}),\quad k=2,\dots,n-1,\nonumber\\
+&\dot{u}_k=d(u_{k+1}-2u_k+u_{k-1}),\quad k=2,\dots,n-1,\nonumber\\
 &\dot{u}_n=d(u_{n-1}-u_n).\nonumber
 \end{align}
 An interesting point to note about this last equation is that it is a finite element discretisation of the diffusion equation.
@@ -447,7 +447,7 @@ An interesting point to note about this last equation is that it is a finite ele
 %%\dot{v}=-uv
 \end{Answ}
 \section*{Exam revision}
-\section{More two body problem}
+\section{More two-body problem}
 From question \ref{Two body problem continued} we know that 
 \bb
 \ddot{R}-R\dot{\Theta}^2=-\frac{Gm}{R^2},\quad R^2\dot{\Theta}=C.
@@ -510,7 +510,7 @@ Multiply through by $R_0^2R^2$ and divide through by $C^2$, all of which are pos
 \subsubsection{}
 If $aR_0<1$ the coefficient of the quadratic term is positive. The roots of the quadratic are $R_0>0$ and $R_0/(aR_0-1)<0$. Thus, for inequality \eqref{ineq} to be satisfied we need either $R>R_0$, as suggested in the question or $R<R_0/(aR_0-1)<0$, which is not possible since $R>0$.
 
-If $aR_0>1$ the coefficient of the quadratic term is negative. The roots are $R_0$ and $R_0/(aR_0-1)$, which are both positive. For inequality \eqref{ineq} to be satisfied we $R$ needs to be between these two roots. However, the larger root depends on whether $(aR_0-1)$ is greater or less than one. If $(aR_0-1)>1$ then $R_0/(aR_0-1)<R_0$ and if $(aR_0-1)<1$ then $R_0<R_0/(aR_0-1)$, justifying the given ranges.
+If $aR_0>1$ the coefficient of the quadratic term is negative. The roots are $R_0$ and $R_0/(aR_0-1)$, which are both positive. For inequality \eqref{ineq} to be satisfied, $R$ needs to be between these two roots. However, the larger root depends on whether $(aR_0-1)$ is greater or less than one. If $(aR_0-1)>1$ then $R_0/(aR_0-1)<R_0$ and if $(aR_0-1)<1$ then $R_0<R_0/(aR_0-1)$, justifying the given ranges.
 \end{Answ}
 \section{More Law of Mass Action}
 \begin{enumerate}
@@ -547,3 +547,4 @@ If $aR_0>1$ the coefficient of the quadratic term is negative. The roots are $R_
 \end{enumerate}
 \end{Answ}
 \end{document}
+
