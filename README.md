@@ -7,6 +7,12 @@ These notes were written by Dr Thomas E. Woolley. They are not based on a specif
 
 All errors are the fault of Dr Thomas E. Woolley.
 
+## Interactive ODE Explorer
+
+[Open the applet](https://thomaswoolley.co.uk/ode-explorer/) or [use the embedded website version](https://thomaswoolley.co.uk/ode-explorer.html). ODE Explorer simulates autonomous scalar equations and two-variable systems, with clickable initial conditions, phase plots, nullclines, equilibrium eigenvalues and linked time solutions. Enter your own equations or choose from thirteen examples. Automatically detected parameters can be varied with sliders, and plots and solution data can be downloaded as PNG and CSV files.
+
+The [full user guide](simulator/README.md) explains the controls, expression syntax, parameter ranges, interpretation of the plots, numerical methods, examples, downloads and embedding. Source code and numerical checks are in [`simulator/`](simulator/).
+
 # Folders
 The contents of the folders should be pretty self explanatory. However, I expand on the titles here.
 
