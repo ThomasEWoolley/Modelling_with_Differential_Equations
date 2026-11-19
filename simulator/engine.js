@@ -2,7 +2,7 @@
 (function(root){
 'use strict';
 const functions={sin:Math.sin,cos:Math.cos,tan:Math.tan,asin:Math.asin,acos:Math.acos,atan:Math.atan,sinh:Math.sinh,cosh:Math.cosh,tanh:Math.tanh,exp:Math.exp,log:Math.log,ln:Math.log,log10:Math.log10,sqrt:Math.sqrt,abs:Math.abs,sign:Math.sign,floor:Math.floor,ceil:Math.ceil,min:Math.min,max:Math.max,pow:Math.pow,atan2:Math.atan2};
-function compile(source,variables=['u','v']){
+function tokenize(source){
  if(!source.trim()||source.length>1000) throw Error('Enter an expression of at most 1,000 characters.');
  source=source.replace(/[−–]/g,'-').replace(/·|×/g,'*').replace(/\.([*/^])/g,'$1').replace(/\*\*/g,'^');
  const tokens=[];let pos=0;
@@ -12,7 +12,10 @@ function compile(source,variables=['u','v']){
  if((m=/^[a-zA-Z_][a-zA-Z_0-9]*/.exec(rest))){tokens.push({type:'id',value:m[0]});pos+=m[0].length;continue;}
  if('+-*/^(),'.includes(rest[0])){tokens.push({type:rest[0]});pos++;continue;}
  throw Error('Unsupported character: '+rest[0]);}
- tokens.push({type:'end'});let i=0,depth=0;
+ return tokens;
+}
+function compile(source,variables=['u','v']){
+ const tokens=tokenize(source); tokens.push({type:'end'});let i=0,depth=0;
  const at=()=>tokens[i];const take=()=>tokens[i++];
  function expr(min=0){if(++depth>80)throw Error('Expression is too deeply nested.');let t=take(),node;
  if(t.type==='number')node=()=>t.value;
@@ -35,6 +38,19 @@ function compile(source,variables=['u','v']){
 function parameters(text){const result=Object.create(null);for(const row of text.split(/[;\n]/).filter(x=>x.trim())){
  const m=/^\s*([a-zA-Z_][a-zA-Z_0-9]*)\s*=\s*(.+?)\s*$/.exec(row);if(!m)throw Error('Write parameters as r = 1; K = 10.');const name=m[1];if(['u','v','t','pi','e'].includes(name)||Object.hasOwn(functions,name)||Object.hasOwn(result,name))throw Error('Reserved or repeated parameter: '+name);
  const val=compile(m[2],Object.keys(result))(result);if(!Number.isFinite(val))throw Error('Parameter '+name+' must be finite.');result[name]=val;}return result;}
+// Parameter discovery uses the expression lexer, so scientific notation is not a name.
+function parameterNames(sources){const names=new Set();for(const source of sources){if(!source.trim())continue;for(const token of tokenize(source))if(token.type==='id'&&!['u','v','pi','e'].includes(token.value)&&!Object.hasOwn(functions,token.value))names.add(token.value);}return [...names];}
+function parameterSpec(raw,name='Parameter'){
+ const numeric=(v,label)=>{if(v===undefined||String(v).trim()===''||!Number.isFinite(Number(v)))throw Error(name+': enter a finite '+label+'.');return Number(v);};
+ const baseline=numeric(raw.baseline,'baseline');const hasMin=raw.min!==undefined&&String(raw.min).trim()!=='',hasMax=raw.max!==undefined&&String(raw.max).trim()!=='';
+ if(hasMin!==hasMax)throw Error(name+': supply both limits, or leave both blank to keep it fixed.');
+ if(!hasMin)return {baseline,min:baseline,max:baseline,value:baseline,fixed:true};
+ const min=numeric(raw.min,'minimum'),max=numeric(raw.max,'maximum');if(min>max)throw Error(name+': the minimum must not exceed the maximum.');if(baseline<min||baseline>max)throw Error(name+': the baseline must lie between the minimum and maximum.');
+ if(!Number.isFinite(max-min))throw Error(name+': the parameter range is too large.');
+ const value=raw.value!==undefined&&Number.isFinite(Number(raw.value))&&Number(raw.value)>=min&&Number(raw.value)<=max?Number(raw.value):baseline;
+ return {baseline,min,max,value,fixed:min===max};
+}
+function eigenvalues2x2(trace,determinant){const disc=trace*trace-4*determinant;if(disc<0)return [{re:trace/2,im:Math.sqrt(-disc)/2},{re:trace/2,im:-Math.sqrt(-disc)/2}];const first=(trace+(trace>=0?1:-1)*Math.sqrt(disc))/2,second=first===0?0:determinant/first;return [{re:first,im:0},{re:second,im:0}].sort((a,b)=>b.re-a.re);}
 function system(f,g,dimension,params){const vars=dimension===1?['u',...Object.keys(params)]:['u','v',...Object.keys(params)];const ff=compile(f,vars),gg=dimension===2?compile(g,vars):null;return y=>{const s={...params,u:y[0],v:y[1]};return gg?[ff(s),gg(s)]:[ff(s)];};}
 // Dormand–Prince 5(4), with weighted local error and rejected-step control.
 const A=[[],[1/5],[3/40,9/40],[44/45,-56/15,32/9],[19372/6561,-25360/2187,64448/6561,-212/729],[9017/3168,-355/33,46732/5247,49/176,-5103/18656],[35/384,0,500/1113,125/192,-2187/6784,11/84]];
@@ -71,7 +87,7 @@ function roots1D(fn,min,max){const N=1200,x=Array.from({length:N+1},(_,i)=>min+(
  if(i<N&&f[i]*f[i+1]<0){let a=x[i],b=x[i+1],fa=f[i];for(let k=0;k<45;k++){let m=(a+b)/2,fm=fn([m])[0];if(fa*fm<=0)b=m;else{a=m;fa=fm;}}add((a+b)/2);}
  // Newton seeds at local minima of |f| also detect even-multiplicity roots.
  if(i>0&&i<N&&Math.abs(f[i])<=Math.abs(f[i-1])&&Math.abs(f[i])<=Math.abs(f[i+1])){let u=x[i];for(let k=0;k<60;k++){let z=fn([u])[0],d=(max-min)*1e-6,der=(fn([u+d])[0]-fn([u-d])[0])/(2*d);if(!Number.isFinite(der)||Math.abs(der)<1e-14)break;const step=z/der;u-=step;if(Math.abs(step)<1e-12)break;}add(u);}}
- return roots.sort((a,b)=>a-b).map(u=>{const h=Math.max(1e-5,(max-min)*1e-4),left=fn([u-h])[0],right=fn([u+h])[0];return {u,v:0,label:left>0&&right<0?'Stable':left<0&&right>0?'Unstable':left*right>0?'Semistable':'Non-hyperbolic'};});}
+ return roots.sort((a,b)=>a-b).map(u=>{const h=Math.max(1e-5,(max-min)*1e-4),left=fn([u-h])[0],right=fn([u+h])[0];const dh=Math.cbrt(Number.EPSILON)*Math.max(1,Math.abs(u)),derivative=(fn([u+dh])[0]-fn([u-dh])[0])/(2*dh);return {u,v:0,derivative,eigenvalues:[{re:derivative,im:0}],label:left>0&&right<0?'Stable':left<0&&right>0?'Unstable':left*right>0?'Semistable':'Non-hyperbolic'};});}
 function equilibria(fn,bounds){const [xmin,xmax,ymin,ymax]=bounds,dx=xmax-xmin,dy=ymax-ymin,res=[];
  // Work in dimensionless window coordinates so differently scaled axes remain usable.
  const F=(x,y)=>{const f=fn([xmin+x*dx,ymin+y*dy]);return [f[0]/dx,f[1]/dy];};
@@ -84,8 +100,8 @@ function equilibria(fn,bounds){const [xmin,xmax,ymin,ymax]=bounds,dx=xmax-xmin,d
  if(x< -1e-7||x>1+1e-7||y< -1e-7||y>1+1e-7||!Number.isFinite(x+y)||Math.hypot(...F(x,y))>1e-8||res.some(r=>Math.hypot((r.u-xmin)/dx-x,(r.v-ymin)/dy-y)<1e-4))continue;
  const u=xmin+x*dx,v=ymin+y*dy,h=1e-5,fx=F(x+h,y),bx=F(x-h,y),fy=F(x,y+h),by=F(x,y-h),a=(fx[0]-bx[0])/(2*h),b=(fy[0]-by[0])/(2*h),c=(fx[1]-bx[1])/(2*h),d=(fy[1]-by[1])/(2*h),tr=a+d,det=a*d-b*c,disc=tr*tr-4*det,eps=1e-7*Math.max(1,Math.abs(a),Math.abs(b),Math.abs(c),Math.abs(d));
  let label=det< -eps?'Saddle':Math.abs(det)<=eps?'Non-hyperbolic':Math.abs(tr)<=eps&&disc<0?'Centre (linearisation)':disc<0?(tr<0?'Stable spiral':'Unstable spiral'):(tr<0?'Stable node':'Unstable node');
- res.push({u,v,label,tr,det});}
+ res.push({u,v,label,tr,det,eigenvalues:eigenvalues2x2(tr,det),jacobian:[[a,b*dx/dy],[c*dy/dx,d]]});}
  return res.sort((a,b)=>a.u-b.u||a.v-b.v);
 }
-const api={compile,parameters,system,integrate,roots1D,equilibria};if(typeof module!=='undefined')module.exports=api;else root.ODE=api;
+const api={compile,parameters,parameterNames,parameterSpec,eigenvalues2x2,system,integrate,roots1D,equilibria};if(typeof module!=='undefined')module.exports=api;else root.ODE=api;
 })(typeof window==='undefined'?globalThis:window);
